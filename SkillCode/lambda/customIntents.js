@@ -1,4 +1,5 @@
 const Alexa = require("ask-sdk-core");
+const axios = require("axios");
 
 exports.HelloWorldIntentHandler = {
   canHandle(handlerInput) {
@@ -25,13 +26,20 @@ exports.JokeIntentHandler = {
       Alexa.getIntentName(handlerInput.requestEnvelope) === "JokeIntent"
     );
   },
-  handle(handlerInput) {
-    const speakOutput = "Hello World!";
+  async handle(handlerInput) {
+    const response = await getJoke();
     return (
       handlerInput.responseBuilder
-        .speak(speakOutput)
+        .speak(response[0].setup + " " + response[0].punchline)
         //.reprompt('add a reprompt if you want to keep the session open for the user to respond')
         .getResponse()
     );
   },
 };
+
+async function getJoke() {
+  const { data } = await axios.get(
+    "https://official-joke-api.appspot.com/jokes/programming/random"
+  );
+  return data;
+}
