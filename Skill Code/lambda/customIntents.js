@@ -22,7 +22,7 @@ exports.JokeIntentHandler = {
   canHandle(handlerInput) {
     return (
       Alexa.getRequestType(handlerInput.requestEnvelope) === "IntentRequest" &&
-      Alexa.getIntentName(handlerInput.requestEnvelope) === "HelloWorldIntent"
+      Alexa.getIntentName(handlerInput.requestEnvelope) === "JokeIntent"
     );
   },
   handle(handlerInput) {

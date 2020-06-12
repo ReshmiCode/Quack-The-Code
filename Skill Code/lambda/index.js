@@ -12,7 +12,7 @@ const LaunchRequestHandler = {
   },
   handle(handlerInput) {
     const speakOutput =
-      "Welcome, you can say Hello or Help. Which would you like to try?";
+      "Welcome, to your code companion. Quak. What can I help you with today? Quoke.";
     const repromptOutput =
       "Sorry I did not catch that. What would you like to try?";
     return handlerInput.responseBuilder
