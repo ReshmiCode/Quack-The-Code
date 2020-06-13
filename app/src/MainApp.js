@@ -8,7 +8,7 @@ const axios = require("axios");
 const _ = require("lodash");
 const moment = require("moment");
 
-function Desktop() {
+function MainApp() {
   const [user, setUser] = useState("");
   const [commits, setCommits] = useState(0);
   const [quoteOrSetup, setQuoteOrSetup] = useState("");
@@ -143,7 +143,7 @@ function Desktop() {
   );
 }
 
-export default Desktop;
+export default MainApp;
 
 const PROGQUES = [
   {
