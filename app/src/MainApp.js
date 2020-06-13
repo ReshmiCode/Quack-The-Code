@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import "./App.css";
 import Speech from "speak-tts";
-import { Link } from "react-router-dom";
 import Speechy from "./Speech2text";
 
 const axios = require("axios");
@@ -12,8 +11,7 @@ const moment = require("moment");
 function MainApp() {
   const [user, setUser] = useState("");
   const [commits, setCommits] = useState(0);
-  const [quoteOrSetup, setQuoteOrSetup] = useState("");
-  const [authorOrPunchline, setAuthorOrPunchline] = useState("");
+  const [text, setText] = useState("");
 
   //Check if speech is available
   const speech = new Speech();
@@ -73,9 +71,8 @@ function MainApp() {
     const { data } = await axios.get(
       "https://official-joke-api.appspot.com/jokes/programming/random"
     );
-    setQuoteOrSetup(data[0].setup);
+    setText(data[0].setup + "\n - " + data[0].punchline);
     await textToSpeech(data[0].setup);
-    setAuthorOrPunchline(data[0].punchline);
     await textToSpeech(data[0].punchline);
   }
 
@@ -83,38 +80,34 @@ function MainApp() {
     const { data } = await axios.get(
       "http://quotes.stormconsultancy.co.uk/random.json"
     );
-    setQuoteOrSetup(data.quote);
-    setAuthorOrPunchline(" - " + data.author);
+    setText(data.quote + "\n - " + data.author);
     await textToSpeech(data.quote);
     await textToSpeech(data.author);
   }
 
   async function getQuote() {
     const { data } = await axios.get("http://api.quotable.io/random");
-    setQuoteOrSetup(data.content);
-    setAuthorOrPunchline(" - " + data.author);
+    setText(data.content + "\n - " + data.author);
     await textToSpeech(data.content);
     await textToSpeech(data.author);
   }
 
   async function getQuestion() {
     const index = Math.floor(Math.random() * PROGQUES.length);
-    setQuoteOrSetup(PROGQUES[index].question);
+    setText(PROGQUES[index].question);
     await textToSpeech(PROGQUES[index].question);
   }
 
   async function giveAdvice() {
     const { data } = await axios.get("https://api.adviceslip.com/advice");
-    setQuoteOrSetup(data.slip.advice);
-    setAuthorOrPunchline(" - Your code companion");
+    setText(data.slip.advice + "\n - Your code companion");
     await textToSpeech(data.slip.advice);
   }
 
   return (
     <div className="App">
       <header className="App-header">
-        <p> {quoteOrSetup}</p>
-        <p> {authorOrPunchline}</p>
+        <p style={{ "white-space": "pre-wrap" }}> {text}</p>
         <Speechy />
         <p> Duckie </p>
         <form onSubmit={handleSubmit}>
