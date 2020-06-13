@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import isElectron from 'is-electron';
-
+import { Link } from "react-router-dom";
 import "./App.css";
 import Speech from "speak-tts";
 import Speechy from "./Speech2text";
+//const { shell } = require('electron');
 
 const axios = require("axios");
 const _ = require("lodash");
@@ -40,6 +41,11 @@ function MainApp() {
     .catch((e) => {
       console.error("An error occured while initializing : ", e);
     });
+
+  function openWebsiteInBrower() {
+    console.log("Website");
+    //shell.openExternal("https://github.com/ReshmiCode/Coding-Companion");
+  }
 
   async function callMatchingFunction(message) {
     console.log(message);
@@ -166,6 +172,12 @@ function MainApp() {
         <button onClick={getQuestion}>Get a Programming Question</button>
         <button onClick={giveAdvice}>Get some Advice</button>
         <button onClick={getFact}>Get a Programming Fact</button>
+        {isElectron() ? 
+        <button onClick={openWebsiteInBrower} > View Website in  Browser </button>
+        : <Link to="/">
+            <button> View Website </button>
+        </Link>
+        }
       </header>
     </div>
   );

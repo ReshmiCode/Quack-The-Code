@@ -9,7 +9,7 @@ function HomePage() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p> Duckie </p>
-        <Link to ='/webapp'>
+        <Link to ='/app'>
             <button> Go to App  </button>
         </Link>
       </header>

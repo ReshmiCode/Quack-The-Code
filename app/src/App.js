@@ -2,9 +2,8 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import { BrowserRouter as Router , Route , Redirect , Switch} from 'react-router-dom';
 import ScrollToTop from './ScrollToTop';
-import Website from './Website';
 import HomePage from './HomePage';
-import Desktop from './Desktop';
+import MainApp from './MainApp';
 
 const App = () => {
   return (
@@ -16,11 +15,8 @@ const App = () => {
                     <Route path="/" exact>
                       <HomePage/>
                     </Route>
-                    <Route path="/webapp" exact>
-                      <Website />
-                    </Route>
                     <Route path="/app" exact>
-                      <Desktop />
+                      <MainApp />
                     </Route>
                     <Redirect to="/"/>
                 </Switch>
