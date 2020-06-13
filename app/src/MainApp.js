@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import isElectron from 'is-electron';
 
 import "./App.css";
 import Speech from "speak-tts";
@@ -42,6 +43,7 @@ function MainApp() {
 
   async function callMatchingFunction(message) {
     console.log(message);
+    console.log(isElectron());
     if (message.includes("hello"))
       await textToSpeech("Hello to you too!")
     else if (message.includes("joke"))
