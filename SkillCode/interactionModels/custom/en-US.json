@@ -40,10 +40,49 @@
             "tell me a joke",
             "tell me a programming joke"
           ]
+        },
+        {
+          "name": "InspQuoteIntent",
+          "slots": [],
+          "samples": [
+            "tell me an inspirational quote",
+            "inspire me"
+          ]
+        },
+        {
+          "name": "ProgQuizIntent",
+          "slots": [],
+          "samples": [
+            "quiz me"
+          ]
+        },
+        {
+          "name": "ProgFactIntent",
+          "slots": [],
+          "samples": [
+            "tell me a programming fact",
+            "tell me a fact"
+          ]
+        },
+        {
+          "name": "AdviceIntent",
+          "slots": [],
+          "samples": [
+            "I need some help",
+            "advise me",
+            "tell me some advice"
+          ]
+        },
+        {
+          "name": "ProgQuoteIntent",
+          "slots": [],
+          "samples": [
+            "tell me a programming quote"
+          ]
         }
       ],
       "types": []
     }
   },
-  "version": "3"
+  "version": "5"
 }

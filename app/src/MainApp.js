@@ -53,10 +53,15 @@ function MainApp() {
     if (message.includes("hello")) await textToSpeech("Hello to you too!");
     else if (message.includes("joke")) getJoke();
     else if (message.includes("programming quote")) getProgrammingQuote();
-    else if (message.includes("inspirational quote")) getQuote();
+    else if (
+      message.includes("inspirational quote") ||
+      message.includes("inspire")
+    )
+      getQuote();
     else if (message.includes("fact")) getFact();
     else if (message.includes("advice")) giveAdvice();
-    else if (message.includes("question")) getQuestion();
+    else if (message.includes("question") || message.includes("quiz"))
+      getQuestion();
     else if (message.includes("commits") || message.includes("github"))
       getCommits();
     else if (message.length > 1)
