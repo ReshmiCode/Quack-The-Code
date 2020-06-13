@@ -1,6 +1,6 @@
 'use strict'
 import React, { Component } from "react"
-
+import logo from "./logo.svg";
 //------------------------SPEECH RECOGNITION-----------------------------
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
@@ -91,7 +91,7 @@ class Speechy extends Component {
   render() {
     return (
       <div>
-        <button id='microphone-btn' onClick={this.toggleListen} />
+        <button id='microphone-btn' onClick={this.toggleListen} ><img src={logo} className="App-logo" alt="logo" /></button>
         <div id='interim' ></div>
         <div id='final' ></div>
       </div>
