@@ -112,6 +112,7 @@ function MainApp() {
 
   async function getQuestion() {
     const index = Math.floor(Math.random() * PROGQUES.length);
+    setQuoteOrSetup(PROGQUES[index].question);
     await textToSpeech(PROGQUES[index].question);
   }
 
