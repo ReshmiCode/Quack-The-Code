@@ -16,8 +16,8 @@ function MainApp() {
 
   async function callbackFunction(childData) {
     console.log("Message from child:", childData);
-    await setMessage(childData);
-    await console.log("Saved message:", message);
+    setMessage(childData);
+    setText(childData);
   }
 
   //Check if speech is available
