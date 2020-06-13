@@ -1,12 +1,39 @@
 import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Speech from 'speak-tts'
 
 const axios = require("axios");
 
 function App() {
   const [user, setUser] = useState('');
   const [commits, setCommits] = useState([]);
+
+  //Check if speech is available
+  const speech = new Speech()
+  if(speech.hasBrowserSupport()) {
+    console.log("speech synthesis supported")
+  }
+  //Get voices list
+  speech.init().then((data) => {
+    console.log("Speech is ready, voices are available", data)
+  }).catch(e => {
+    console.error("An error occured while initializing : ", e)
+  })
+  //Initalize speech with voice
+  speech.init({
+    'volume': 1,
+    'lang': 'en-US',
+    'rate': 1,
+    'pitch': 1,
+    'voice':'Samantha',
+    'splitSentences': true,
+    'listeners': {
+      'onvoiceschanged': (voices) => {
+          console.log("Event voiceschanged", voices)
+        }
+    }
+  });
 
   async function getCommits() {
     const commits = await axios.get(`https://api.github.com/users/${user}/events`);
