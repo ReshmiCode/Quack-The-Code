@@ -105,7 +105,7 @@ function MainApp() {
   }
   async function getFact() {
     const index = Math.floor(Math.random() * PROGQUES.length);
-    setQuoteOrSetup(PROGFACTS[index].fact);
+    setText(PROGFACTS[index].fact);
     await textToSpeech(PROGFACTS[index].fact);
   }
 
