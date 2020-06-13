@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import Speech from "speak-tts";
 import { Link } from "react-router-dom";
-import Speechy from "./Speech2text"
+import Speechy from "./Speech2text";
 
 const axios = require("axios");
 const _ = require("lodash");
@@ -29,14 +29,6 @@ function MainApp() {
       pitch: 1,
       voice: "Samantha",
       splitSentences: true,
-      listeners: {
-        onvoiceschanged: (voices) => {
-          console.log("Event voiceschanged", voices);
-        },
-      },
-    })
-    .then((data) => {
-      console.log("Speech is ready, voices are available", data);
     })
     .catch((e) => {
       console.error("An error occured while initializing : ", e);
@@ -46,9 +38,6 @@ function MainApp() {
     speech
       .speak({
         text: text,
-      })
-      .then(() => {
-        console.log("Success !");
       })
       .catch((e) => {
         console.error("An error occurred :", e);
@@ -77,7 +66,6 @@ function MainApp() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    console.log(user);
     await getCommits();
   }
 
@@ -85,10 +73,8 @@ function MainApp() {
     const { data } = await axios.get(
       "https://official-joke-api.appspot.com/jokes/programming/random"
     );
-    console.log(data[0].setup);
     setQuoteOrSetup(data[0].setup);
     await textToSpeech(data[0].setup);
-    console.log(data[0].punchline);
     setAuthorOrPunchline(data[0].punchline);
     await textToSpeech(data[0].punchline);
   }
@@ -117,12 +103,19 @@ function MainApp() {
     await textToSpeech(PROGQUES[index].question);
   }
 
+  async function giveAdvice() {
+    const { data } = await axios.get("https://api.adviceslip.com/advice");
+    setQuoteOrSetup(data.slip.advice);
+    setAuthorOrPunchline(" - Your code companion");
+    await textToSpeech(data.slip.advice);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <p> {quoteOrSetup}</p>
         <p> {authorOrPunchline}</p>
-        <Speechy/>
+        <Speechy />
         <p> Duckie </p>
         <form onSubmit={handleSubmit}>
           <label>
@@ -140,6 +133,7 @@ function MainApp() {
         <button onClick={getProgrammingQuote}>Get a Programming Quote</button>
         <button onClick={getQuote}>Get an Inspirational Quote</button>
         <button onClick={getQuestion}>Get a Programming Question</button>
+        <button onClick={giveAdvice}>Get some Advice</button>
       </header>
     </div>
   );
