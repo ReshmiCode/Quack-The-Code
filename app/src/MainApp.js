@@ -42,18 +42,24 @@ function MainApp() {
 
   async function callMatchingFunction(message) {
     console.log(message);
-    if (message.includes("joke"))
+    if (message.includes("hello"))
+      await textToSpeech("Hello to you too!")
+    else if (message.includes("joke"))
       getJoke();
-    if (message.includes("programming quote"))
+    else if (message.includes("programming quote"))
       getProgrammingQuote();
-    if (message.includes("inspirational quote"))
+    else if (message.includes("inspirational quote"))
       getQuote();
-    if (message.includes("fact"))
+    else if (message.includes("fact"))
       getFact();
-    if (message.includes("advice"))
+    else if (message.includes("advice"))
       giveAdvice();
-    if (message.includes("question"))
+    else if (message.includes("question"))
       getQuestion();
+    else if (message.includes("commits") || message.includes("github") )
+      getCommits();
+    else if (message.length > 1)
+      await textToSpeech("Sorry. i can't process that!")
   }
 
   async function textToSpeech(text) {
@@ -80,6 +86,7 @@ function MainApp() {
     });
 
     setCommits(count);
+    await textToSpeech("You made " + count + " commits today");
   }
 
   async function handleChange(event) {
