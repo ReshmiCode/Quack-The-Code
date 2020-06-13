@@ -18,6 +18,7 @@ function MainApp() {
     console.log("Message from child:", childData);
     setMessage(childData);
     //setText(childData);
+    callMatchingFunction(childData);
   }
 
   //Check if speech is available
@@ -38,6 +39,13 @@ function MainApp() {
     .catch((e) => {
       console.error("An error occured while initializing : ", e);
     });
+
+  async function callMatchingFunction(message) {
+    console.log(message);
+    if (message.includes("joke")){
+      getJoke();
+    }
+  }
 
   async function textToSpeech(text) {
     speech
