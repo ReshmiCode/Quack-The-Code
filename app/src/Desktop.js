@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Speech from "speak-tts";
 import { Link } from "react-router-dom";
+import Speechy from "./Speech2text"
 
 const axios = require("axios");
 const _ = require("lodash");
@@ -121,7 +122,7 @@ function Desktop() {
       <header className="App-header">
         <p> {quoteOrSetup}</p>
         <p> {authorOrPunchline}</p>
-        <img src={logo} className="App-logo" alt="logo" />
+        <Speechy/>
         <p> Duckie </p>
         <form onSubmit={handleSubmit}>
           <label>
