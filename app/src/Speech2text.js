@@ -18,10 +18,15 @@ class Speechy extends Component {
   constructor() {
     super()
     this.state = {
-      listening: false
+      listening: false,
+      finalTranscript: ""
     }
     this.toggleListen = this.toggleListen.bind(this)
     this.handleListen = this.handleListen.bind(this)
+  }
+
+  async sendData ()  {
+    this.props.parentCallback(this.state.finalTranscript);
   }
 
   toggleListen() {
@@ -69,6 +74,8 @@ class Speechy extends Component {
       const transcriptArr = finalTranscript.split(' ')
       const stopCmd = transcriptArr.slice(-3, -1)
       console.log('stopCmd', stopCmd)
+      this.setState({ finalTranscript: finalTranscript })
+      this.sendData();
 
       if (stopCmd[0] === 'stop' && stopCmd[1] === 'listening'){
         recognition.stop()
