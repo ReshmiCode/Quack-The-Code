@@ -64,9 +64,12 @@ function Duckie() {
     const today = _.filter(push, (obj) =>
       moment(obj.created_at).isSame(moment(), "day")
     );
-    console.log(today);
+    let count = 0;
+    _.forEach(today, (obj) => {
+      count += obj.payload.commits.length;
+    });
 
-    setCommits(today);
+    setCommits(count);
   }
 
   async function getJoke() {
@@ -131,7 +134,7 @@ function Duckie() {
           </label>
           <input type="submit" value="Get Commit" />
         </form>
-        <p> {commits.length} Commits</p>
+        <p> {commits} Commits</p>
         <button onClick={getJoke}>Get a Joke</button>
         <button onClick={getProgrammingQuote}>Get a Programming Quote</button>
         <button onClick={getQuote}>Get an Inspirational Quote</button>
