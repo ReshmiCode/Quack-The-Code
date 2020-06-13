@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import MainApp from './MainApp';
 //const { shell } = require('electron');
 
-function Duckie() {
+function Desktop() {
 
   function openWebsite() {
     console.log("Website");
@@ -15,13 +15,10 @@ function Duckie() {
     <div className="App">
       <header className="App-header">
         <MainApp/>
-        <Link to="/">
-          <button> View Website </button>
-        </Link>
         <button onClick = {openWebsite}> View Website in  Browser </button>
       </header>
     </div>
   );
 }
 
-export default Duckie;
+export default Desktop;
