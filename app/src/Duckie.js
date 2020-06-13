@@ -134,7 +134,7 @@ function Duckie() {
           </label>
           <input type="submit" value="Get Commit" />
         </form>
-        <p> {commits} Commits</p>
+        <p> {commits} Commits Today</p>
         <button onClick={getJoke}>Get a Joke</button>
         <button onClick={getProgrammingQuote}>Get a Programming Quote</button>
         <button onClick={getQuote}>Get an Inspirational Quote</button>
