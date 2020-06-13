@@ -16,9 +16,10 @@ function MainApp() {
   const [quoteOrSetup, setQuoteOrSetup] = useState("");
   const [authorOrPunchline, setAuthorOrPunchline] = useState("");
 
-  function  callbackFunction(childData) {
-    setMessage(childData);
-    console.log("Messgae from child:" , message);
+  async function  callbackFunction(childData) {
+    console.log("Message from child:" , childData);
+    await setMessage(childData);
+    await console.log("Saved message:" , message);
   }
 
   //Check if speech is available
