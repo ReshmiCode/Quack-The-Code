@@ -117,7 +117,7 @@ function MainApp() {
     await textToSpeech(PROGQUES[index].question);
   }
   async function getFact() {
-    const index = Math.floor(Math.random() * PROGQUES.length);
+    const index = Math.floor(Math.random() * PROGFACTS.length);
     setQuoteOrSetup(PROGFACTS[index].fact);
     await textToSpeech(PROGFACTS[index].fact);
   }
@@ -190,16 +190,16 @@ const PROGFACTS = [
     fact: "The first computer game was created in 1961." 
   },
   {
-    fact: "The word computer bug was inspired by a real bug. It was founded by Grace Hopper in 1947." 
+    fact: "The word computer \"bug\" was inspired by a real bug. It was founded by Grace Hopper in 1947." 
   },
   {
     fact: "Nowadays, there are over 700 different programming languages. All experts recommend for kids to start with a visual editor and a blockly based programming language for them to learn in a smoother and easier way." 
   },
   {
-    fact: "The first programming language per sé was called Fortran, and it was created in the ’50s." 
+    fact: "The first programming language (per sé) was called Fortran, and it was created in the ’50s." 
   },
   {
-    fact: "Almost any powered with electricity needs to be coded. Can you imagine?" 
+    fact: "Almost any powered with electricity needs to be coded. Can you imagine?!" 
   },
   {
     fact: "Since many programming languages share the same structure, it is easy for students to learn a new programming language once they have already mastered one before." 
