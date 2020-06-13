@@ -29,6 +29,14 @@ function App() {
     //await testToSpeech(data.author);
   }
 
+  async function getQuote() {
+    const { data } =  await axios.get("http://api.quotable.io/random");
+    console.log(data.content);
+    //await testToSpeech(data.content);
+    console.log(data.author);
+    //await testToSpeech(data.author);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -50,7 +58,7 @@ function App() {
         <button onClick={getProgrammingQuote}>
           Get a Programming Quote
         </button>
-        <button>
+        <button onClick={getQuote}>
           Get an Inspirational Quote
         </button>
       </header>
