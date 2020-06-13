@@ -14,6 +14,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-github-login": "^1.0.3",
+    "react-responsive-spritesheet": "^2.3.9",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "speak-tts": "^2.0.8"

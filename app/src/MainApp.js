@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import isElectron from 'is-electron';
+import isElectron from "is-electron";
 import { Link } from "react-router-dom";
 import "./App.css";
 import Speech from "speak-tts";
@@ -50,24 +50,17 @@ function MainApp() {
   async function callMatchingFunction(message) {
     console.log(message);
     console.log(isElectron());
-    if (message.includes("hello"))
-      await textToSpeech("Hello to you too!")
-    else if (message.includes("joke"))
-      getJoke();
-    else if (message.includes("programming quote"))
-      getProgrammingQuote();
-    else if (message.includes("inspirational quote"))
-      getQuote();
-    else if (message.includes("fact"))
-      getFact();
-    else if (message.includes("advice"))
-      giveAdvice();
-    else if (message.includes("question"))
-      getQuestion();
-    else if (message.includes("commits") || message.includes("github") )
+    if (message.includes("hello")) await textToSpeech("Hello to you too!");
+    else if (message.includes("joke")) getJoke();
+    else if (message.includes("programming quote")) getProgrammingQuote();
+    else if (message.includes("inspirational quote")) getQuote();
+    else if (message.includes("fact")) getFact();
+    else if (message.includes("advice")) giveAdvice();
+    else if (message.includes("question")) getQuestion();
+    else if (message.includes("commits") || message.includes("github"))
       getCommits();
     else if (message.length > 1)
-      await textToSpeech("Sorry. i can't process that!")
+      await textToSpeech("Sorry. i can't process that!");
   }
 
   async function textToSpeech(text) {
@@ -153,7 +146,7 @@ function MainApp() {
       <header className="App-header">
         <p style={{ "white-space": "pre-wrap" }}> {text}</p>
         <Speechy parentCallback={callbackFunction} />
-        <p> Duckie </p>
+        <p> Ducky </p>
         <form onSubmit={handleSubmit}>
           <label>
             <input
@@ -172,12 +165,16 @@ function MainApp() {
         <button onClick={getQuestion}>Get a Programming Question</button>
         <button onClick={giveAdvice}>Get some Advice</button>
         <button onClick={getFact}>Get a Programming Fact</button>
-        {isElectron() ? 
-        <button onClick={openWebsiteInBrower} > View Website in  Browser </button>
-        : <Link to="/">
+        {isElectron() ? (
+          <button onClick={openWebsiteInBrower}>
+            {" "}
+            View Website in Browser{" "}
+          </button>
+        ) : (
+          <Link to="/">
             <button> View Website </button>
-        </Link>
-        }
+          </Link>
+        )}
       </header>
     </div>
   );
