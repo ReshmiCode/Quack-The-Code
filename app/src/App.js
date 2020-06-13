@@ -1,9 +1,18 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
+
 const axios = require("axios");
 
 function App() {
+  const [user, setUser] = useState('saloniss');
+  const [commits, setCommits] = useState('saloniss');
+
+  async function fetchData() {
+    const commits = await axios.get(`https://api.github.com/users/${user}/events`);
+    setCommits(commits.data);
+  }
+
   async function getJoke() {
     const { data } =  await axios.get("https://official-joke-api.appspot.com/jokes/programming/random");
     console.log(data[0].setup);
