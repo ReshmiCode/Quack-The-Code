@@ -32,8 +32,8 @@ function App() {
     'splitSentences': true,
     'listeners': {
       'onvoiceschanged': (voices) => {
-          console.log("Event voiceschanged", voices)
-        }
+        console.log("Event voiceschanged", voices)
+      }
     }
   });
 
