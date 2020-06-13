@@ -17,6 +17,7 @@ function MainApp() {
   async function callbackFunction(childData) {
     console.log("Message from child:", childData);
     setMessage(childData);
+    console.log("Saved message", message);
     setText(childData);
   }
 
