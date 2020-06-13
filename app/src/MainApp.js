@@ -104,7 +104,7 @@ function MainApp() {
     await textToSpeech(PROGQUES[index].question);
   }
   async function getFact() {
-    const index = Math.floor(Math.random() * PROGQUES.length);
+    const index = Math.floor(Math.random() * PROGFACTS.length);
     setText(PROGFACTS[index].fact);
     await textToSpeech(PROGFACTS[index].fact);
   }
@@ -186,7 +186,7 @@ const PROGFACTS = [
   },
   {
     fact:
-      "The word computer bug was inspired by a real bug. It was founded by Grace Hopper in 1947.",
+      'The word computer "bug" was inspired by a real bug. It was founded by Grace Hopper in 1947.',
   },
   {
     fact:
@@ -194,11 +194,11 @@ const PROGFACTS = [
   },
   {
     fact:
-      "The first programming language per sé was called Fortran, and it was created in the ’50s.",
+      "The first programming language (per sé) was called Fortran, and it was created in the ’50s.",
   },
   {
     fact:
-      "Almost any powered with electricity needs to be coded. Can you imagine?",
+      "Almost any powered with electricity needs to be coded. Can you imagine?!",
   },
   {
     fact:
