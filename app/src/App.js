@@ -82,6 +82,16 @@ function App() {
     await textToSpeech(data.author);
   }
 
+  async function handleChange(event) {
+    setUser(event.target.value);
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    console.log(user);
+    await getCommits();
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -89,6 +99,13 @@ function App() {
         <p> { authorOrPunchline }</p>
         <img src={logo} className="App-logo" alt="logo" />
         <p> Duckie </p>
+        <form onSubmit={handleSubmit}>
+          <label>
+            <input type="text" placeholder="GitHub User" value={user} onChange={handleChange}/>
+          </label>
+          <input type="submit" value="Get Commit" />
+        </form>
+        <p> {commits.length} Commits</p>
         <button onClick={getJoke}>
           Get a Joke
         </button>
