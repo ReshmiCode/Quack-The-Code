@@ -11,9 +11,15 @@ const moment = require("moment");
 
 function MainApp() {
   const [user, setUser] = useState("");
+  const [message, setMessage] = useState("");
   const [commits, setCommits] = useState(0);
   const [quoteOrSetup, setQuoteOrSetup] = useState("");
   const [authorOrPunchline, setAuthorOrPunchline] = useState("");
+
+  function  callbackFunction(childData) {
+    setMessage(childData);
+    console.log("Messgae from child:" , message);
+  }
 
   //Check if speech is available
   const speech = new Speech();
@@ -127,7 +133,7 @@ function MainApp() {
       <header className="App-header">
         <p> {quoteOrSetup}</p>
         <p> {authorOrPunchline}</p>
-        <Speechy/>
+        <Speechy parentCallback = {callbackFunction}/>
         <p> Duckie </p>
         <form onSubmit={handleSubmit}>
           <label>
