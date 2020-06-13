@@ -5,10 +5,10 @@ import './App.css';
 const axios = require("axios");
 
 function App() {
-  const [user, setUser] = useState('saloniss');
-  const [commits, setCommits] = useState('saloniss');
+  const [user, setUser] = useState('');
+  const [commits, setCommits] = useState([]);
 
-  async function fetchData() {
+  async function getCommits() {
     const commits = await axios.get(`https://api.github.com/users/${user}/events`);
     setCommits(commits.data);
   }
@@ -19,6 +19,14 @@ function App() {
     //await testToSpeech(data[0].setup);
     console.log(data[0].punchline);
     //await testToSpeech(data[0].punchline);
+  }
+
+  async function getProgrammingQuote() {
+    const { data } =  await axios.get("http://quotes.stormconsultancy.co.uk/random.json");
+    console.log(data.quote);
+    //await testToSpeech(data.quote);
+    console.log(data.author);
+    //await testToSpeech(data.author);
   }
 
   return (
@@ -38,6 +46,9 @@ function App() {
         </a>
         <button onClick={getJoke}>
           Get a Joke
+        </button>
+        <button onClick={getProgrammingQuote}>
+          Get a Programming Quote
         </button>
         <button>
           Get an Inspirational Quote
