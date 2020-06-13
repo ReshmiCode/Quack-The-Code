@@ -19,29 +19,27 @@ function Desktop() {
   if (speech.hasBrowserSupport()) {
     console.log("speech synthesis supported");
   }
-  //Get voices list
+  //Initalize speech with voice
   speech
-    .init()
+    .init({
+      volume: 1,
+      lang: "en-US",
+      rate: 1,
+      pitch: 1,
+      voice: "Samantha",
+      splitSentences: true,
+      listeners: {
+        onvoiceschanged: (voices) => {
+          console.log("Event voiceschanged", voices);
+        },
+      },
+    })
     .then((data) => {
       console.log("Speech is ready, voices are available", data);
     })
     .catch((e) => {
       console.error("An error occured while initializing : ", e);
     });
-  //Initalize speech with voice
-  speech.init({
-    volume: 1,
-    lang: "en-US",
-    rate: 1,
-    pitch: 1,
-    voice: "Samantha",
-    splitSentences: true,
-    listeners: {
-      onvoiceschanged: (voices) => {
-        console.log("Event voiceschanged", voices);
-      },
-    },
-  });
 
   async function textToSpeech(text) {
     speech
