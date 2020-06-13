@@ -10,7 +10,7 @@ const moment = require("moment");
 
 function Desktop() {
   const [user, setUser] = useState("");
-  const [commits, setCommits] = useState([]);
+  const [commits, setCommits] = useState(0);
   const [quoteOrSetup, setQuoteOrSetup] = useState("");
   const [authorOrPunchline, setAuthorOrPunchline] = useState("");
 
@@ -70,6 +70,16 @@ function Desktop() {
     setCommits(count);
   }
 
+  async function handleChange(event) {
+    setUser(event.target.value);
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    console.log(user);
+    await getCommits();
+  }
+
   async function getJoke() {
     const { data } = await axios.get(
       "https://official-joke-api.appspot.com/jokes/programming/random"
@@ -86,32 +96,23 @@ function Desktop() {
     const { data } = await axios.get(
       "http://quotes.stormconsultancy.co.uk/random.json"
     );
-    console.log(data.quote);
     setQuoteOrSetup(data.quote);
-    await textToSpeech(data.quote);
-    console.log(data.author);
     setAuthorOrPunchline(" - " + data.author);
+    await textToSpeech(data.quote);
     await textToSpeech(data.author);
   }
 
   async function getQuote() {
     const { data } = await axios.get("http://api.quotable.io/random");
-    console.log(data.content);
     setQuoteOrSetup(data.content);
-    await textToSpeech(data.content);
-    console.log(data.author);
     setAuthorOrPunchline(" - " + data.author);
+    await textToSpeech(data.content);
     await textToSpeech(data.author);
   }
 
-  async function handleChange(event) {
-    setUser(event.target.value);
-  }
-
-  async function handleSubmit(event) {
-    event.preventDefault();
-    console.log(user);
-    await getCommits();
+  async function getQuestion() {
+    const index = Math.floor(Math.random() * PROGQUES.length);
+    await textToSpeech(PROGQUES[index].question);
   }
 
   return (
@@ -136,9 +137,33 @@ function Desktop() {
         <button onClick={getJoke}>Get a Joke</button>
         <button onClick={getProgrammingQuote}>Get a Programming Quote</button>
         <button onClick={getQuote}>Get an Inspirational Quote</button>
+        <button onClick={getQuestion}>Get a Programming Question</button>
       </header>
     </div>
   );
 }
 
 export default Desktop;
+
+const PROGQUES = [
+  {
+    question:
+      "What is a syntax error? A. An error due to incorrect logic. B. An error due to the language rules being broken. C. An error you will never find. D. An error caused by bad network connection.",
+    answer: "B",
+  },
+  {
+    question:
+      "What is FIFO? A. First in Few Out. B. Fade in fade out. C. First in first out. D. False in fact out.",
+    answer: "C",
+  },
+  {
+    question:
+      "What is a short section of code made to complete a task? A. A function. B. A buffer. C. An array. D. An variable.",
+    answer: "A",
+  },
+  {
+    question:
+      "What data type holds a single letter or number? A. Word. B. Double. C. Integer. D. Character.",
+    answer: "D",
+  },
+];
