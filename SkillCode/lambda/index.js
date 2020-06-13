@@ -115,6 +115,8 @@ exports.handler = Alexa.SkillBuilders.custom()
     LaunchRequestHandler,
     Intents.HelloWorldIntentHandler,
     Intents.JokeIntentHandler,
+    Intents.InspQuoteIntentHandler,
+    Intents.ProgQuizIntentHandler,
     HelpIntentHandler,
     CancelAndStopIntentHandler,
     SessionEndedRequestHandler,
