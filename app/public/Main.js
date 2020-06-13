@@ -5,6 +5,6 @@ function createWindow () {
         
     // and load the index.html of the app.     
     //win.loadFile('index.html')
-    win.loadURL('http://localhost:3000/duckie')
+    win.loadURL('http://localhost:3000/app')
 }      
 app.on('ready', createWindow);

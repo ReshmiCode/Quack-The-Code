@@ -4,6 +4,7 @@ import { BrowserRouter as Router , Route , Redirect , Switch} from 'react-router
 import ScrollToTop from './ScrollToTop';
 import Duckie from './Duckie';
 import HomePage from './HomePage';
+import Desktop from './Desktop';
 
 const App = () => {
   return (
@@ -17,6 +18,9 @@ const App = () => {
                     </Route>
                     <Route path="/duckie" exact>
                       <Duckie />
+                    </Route>
+                    <Route path="/app" exact>
+                      <Desktop />
                     </Route>
                     <Redirect to="/"/>
                 </Switch>
