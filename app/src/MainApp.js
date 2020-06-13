@@ -42,9 +42,18 @@ function MainApp() {
 
   async function callMatchingFunction(message) {
     console.log(message);
-    if (message.includes("joke")){
+    if (message.includes("joke"))
       getJoke();
-    }
+    if (message.includes("programming quote"))
+      getProgrammingQuote();
+    if (message.includes("inspirational quote"))
+      getQuote();
+    if (message.includes("fact"))
+      getFact();
+    if (message.includes("advice"))
+      giveAdvice();
+    if (message.includes("question"))
+      getQuestion();
   }
 
   async function textToSpeech(text) {
