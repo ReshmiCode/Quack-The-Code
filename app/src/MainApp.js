@@ -56,13 +56,13 @@ function MainApp() {
       getJoke();
     else if (message.includes("programming quote"))
       getProgrammingQuote();
-    else if (message.includes("inspirational quote"))
+    else if (message.includes("inspirational quote")  || message.includes("inspire"))
       getQuote();
     else if (message.includes("fact"))
       getFact();
     else if (message.includes("advice"))
       giveAdvice();
-    else if (message.includes("question"))
+    else if (message.includes("question")  || message.includes("quiz"))
       getQuestion();
     else if (message.includes("commits") || message.includes("github") )
       getCommits();
