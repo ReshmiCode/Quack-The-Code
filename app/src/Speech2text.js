@@ -26,6 +26,7 @@ class Speechy extends Component {
   }
 
   async sendData ()  {
+    console.log("Sending to parent", this.state.finalTranscript);
     this.props.parentCallback(this.state.finalTranscript);
   }
 
@@ -75,6 +76,7 @@ class Speechy extends Component {
       const stopCmd = transcriptArr.slice(-3, -1)
       console.log('stopCmd', stopCmd)
       this.setState({ finalTranscript: finalTranscript })
+      console.log("Final transcript", this.state.finalTranscript)
       this.sendData();
 
       if (stopCmd[0] === 'stop' && stopCmd[1] === 'listening'){

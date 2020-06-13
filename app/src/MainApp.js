@@ -14,9 +14,10 @@ function MainApp() {
   const [commits, setCommits] = useState(0);
   const [text, setText] = useState("");
 
-  function callbackFunction(childData) {
-    setMessage(childData);
-    console.log("Messgae from child:", message);
+  async function callbackFunction(childData) {
+    console.log("Message from child:", childData);
+    await setMessage(childData);
+    await console.log("Saved message:", message);
   }
 
   //Check if speech is available
