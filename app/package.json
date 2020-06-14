@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "Quack_The_Code",
   "version": "0.1.0",
   "private": true,
   "main": "public/electron.js",
