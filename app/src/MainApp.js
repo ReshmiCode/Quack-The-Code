@@ -7,6 +7,7 @@ import Speechy from "./Speech2text";
 import Modal from "./Modal";
 //const { shell } = require('electron');
 
+const electron = window.require("electron");
 const axios = require("axios");
 const _ = require("lodash");
 const moment = require("moment");
@@ -62,7 +63,7 @@ function MainApp() {
 
   function openWebsiteInBrower() {
     console.log("Website");
-    //shell.openExternal("https://github.com/ReshmiCode/Coding-Companion");
+    electron.shell.openExternal("https://quack-the-code.web.app/");
   }
 
   async function callMatchingFunction(message) {
