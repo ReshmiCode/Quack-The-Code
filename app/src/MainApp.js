@@ -236,6 +236,7 @@ function MainApp() {
     <div className="App">
       <header className="App-header">
         <Modal user={user} changeUser={handleChange} />
+        <p style={{ "white-space": "pre-wrap" }}>{text}</p>
         <Speechy parentCallback={callbackFunction} />
         <p> Ducky ^_^ </p>
         <button style={styles.button} onClick={getCommits}>

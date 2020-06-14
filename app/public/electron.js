@@ -8,7 +8,7 @@ const path = require('path');
 const url = require('url');
 const isDev = require('electron-is-dev');
 
-let wondow;
+let window;
 
 function createWindow () {   
     // Create the browser window.     
