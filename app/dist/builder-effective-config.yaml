@@ -1,0 +1,18 @@
+directories:
+  output: dist
+  buildResources: src
+files:
+  - filter:
+      - build/**/*
+extraMetadata:
+  main: build/electron.js
+appId: com.quack-the-code.app
+productName: Quack The Code
+copyright: 'Copyright © 2020 ${author}'
+mac:
+  icon: ./src/duck.icns
+  category: public.app-category.utilities
+win:
+  icon: ./src/duck0.png
+extends: react-cra
+electronVersion: 9.0.4
