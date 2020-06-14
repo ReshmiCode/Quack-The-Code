@@ -301,22 +301,22 @@ const CODINGQUES = [
 const PROGQUES = [
   {
     question:
-      "What is a syntax error?A. An error due to incorrect logic. B. An error due to the language rules being broken. C. An error you will never find. D. An error caused by bad network connection.",
+      "What is a syntax error?\nA. An error due to incorrect logic.\nB. An error due to the language rules being broken.\nC. An error you will never find.\nD. An error caused by bad network connection.",
     answer: "b",
   },
   {
     question:
-      "What is FIFO? A. First in Few Out. B. Fade in fade out. C. First in first out. D. False in fact out.",
+      "What is FIFO?\nA. First in Few Out.\nB. Fade in fade out.\nC. First in first out.\nD. False in fact out.",
     answer: "c",
   },
   {
     question:
-      "What is a short section of code made to complete a task? A. A function. B. A buffer. C. An array. D. An variable.",
+      "What is a short section of code made to complete a task?\nA. A function.\nB. A buffer.\nC. An array.\nD. An variable.",
     answer: "a",
   },
   {
     question:
-      "What data type holds a single letter or number? A. Word. B. Double. C. Integer. D. Character.",
+      "What data type holds a single letter or number?\nA. Word.\nB. Double.\nC. Integer.\nD. Character.",
     answer: "d",
   },
 ];
