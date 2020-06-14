@@ -261,7 +261,6 @@ function MainApp() {
             {!isNaN(commits) ? " Breadcrumbs" : ""}
           </p>
         </div>
-        <p>{text}</p>
         <Modal user={user} changeUser={handleChange} />
         {confetti && <Confetti width={window.width} height={window.height} />}
         <p style={{ "white-space": "pre-wrap" }}>{text}</p>
