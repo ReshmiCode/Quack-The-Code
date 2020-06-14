@@ -22,13 +22,14 @@ var styles = {
     backgroundColor: "#5295c7",
     border: "none",
     color: "#07002c",
+    outline: "none",
   },
 };
 
 function MainApp() {
   const [user, setUser] = useState(null);
   const [quizQues, setQuizQues] = useState(-1);
-  const [commits, setCommits] = useState(null);
+  const [commits, setCommits] = useState("Quack The Code");
   const [debugNumb, setDebugNumb] = useState(0);
   const [confetti, setConfetti] = useState(false);
   const [text, setText] = useState("");
