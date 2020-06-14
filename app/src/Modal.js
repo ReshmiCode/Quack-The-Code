@@ -11,11 +11,20 @@ const styles = {
     transform: "translate(-50%, -50%)",
   },
   field: {
-    borderRadius: 20,
+    borderRadius: 15,
     width: 200,
     height: 40,
     border: "none",
     backgroundColor: "#d4eaf9",
+  },
+  button: {
+    width: 90,
+    height: 40,
+    margin: 5,
+    borderRadius: 20,
+    backgroundColor: "#5295c7",
+    border: "none",
+    color: "#07002c",
   },
 };
 
@@ -35,7 +44,9 @@ export default function App(props) {
 
   return (
     <div>
-      <button onClick={openModal}>Open Modal</button>
+      <button style={styles.button} onClick={openModal}>
+        Open Modal
+      </button>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -43,17 +54,29 @@ export default function App(props) {
         contentLabel="Example Modal"
       >
         <h2>Settings</h2>
-        <button onClick={closeModal}>close</button>
+        <button
+          style={{
+            width: 40,
+            height: 40,
+            borderRadius: 20,
+            backgroundColor: "#ea9a90",
+            border: "none",
+            margin: 5,
+          }}
+          onClick={closeModal}
+        >
+          x
+        </button>
         <label>
           <input
             style={styles.field}
             type="text"
-            placeholder="GitHub User"
+            placeholder="   GitHub Username"
             value={props.user}
             onChange={props.changeUser}
           />
         </label>
-        <button>Save User</button>
+        <button style={styles.button}>Save</button>
       </Modal>
     </div>
   );
