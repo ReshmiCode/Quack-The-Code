@@ -1,7 +1,7 @@
 "use strict";
 import React, { Component } from "react";
 import logo from "./logo.svg";
-import duck from "./spritesheet.png";
+import duck from "./spritesheet1.png";
 
 import Spritesheet from "react-responsive-spritesheet";
 //------------------------SPEECH RECOGNITION-----------------------------
@@ -105,8 +105,8 @@ class Speechy extends Component {
         <button id="microphone-btn" onClick={this.toggleListen}>
           <Spritesheet
             image={duck}
-            widthFrame={1087}
-            heightFrame={846}
+            widthFrame={780}
+            heightFrame={607}
             steps={9}
             fps={9}
             direction={"forward"}

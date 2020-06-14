@@ -50,11 +50,13 @@ function MainApp() {
   async function callMatchingFunction(message) {
     console.log(message);
     console.log(isElectron());
-    if (message.includes("hello")) await textToSpeech("Hello to you too!");
+    if (message.includes("hello") || message.includes("hi"))
+      await textToSpeech("Quack, hey there friend!");
     else if (message.includes("joke")) getJoke();
     else if (message.includes("programming quote")) getProgrammingQuote();
     else if (
       message.includes("inspirational quote") ||
+      message.includes("inspiration") ||
       message.includes("inspire")
     )
       getQuote();
@@ -62,10 +64,15 @@ function MainApp() {
     else if (message.includes("advice")) giveAdvice();
     else if (message.includes("question") || message.includes("quiz"))
       getQuestion();
-    else if (message.includes("commits") || message.includes("github"))
+    else if (
+      message.includes("commits") ||
+      message.includes("commit") ||
+      message.includes("github")
+    )
       getCommits();
+    else if (message.includes("quack")) await text("Quack to you too");
     else if (message.length > 1)
-      await textToSpeech("Sorry. i can't process that!");
+      await textToSpeech("Quack I'm just a duck I don't understand!");
   }
 
   async function textToSpeech(text) {
@@ -149,7 +156,6 @@ function MainApp() {
   return (
     <div className="App">
       <header className="App-header">
-        <p style={{ "white-space": "pre-wrap" }}> {text}</p>
         <Speechy parentCallback={callbackFunction} />
         <p> Ducky </p>
         <form onSubmit={handleSubmit}>
@@ -177,7 +183,7 @@ function MainApp() {
           </button>
         ) : (
           <Link to="/">
-            <button> View Website </button>
+            <button> Homepage </button>
           </Link>
         )}
       </header>
