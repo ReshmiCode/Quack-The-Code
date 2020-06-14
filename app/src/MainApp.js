@@ -8,6 +8,7 @@ import Modal from "./Modal";
 import Confetti from "react-confetti";
 import Wave from "react-wavify";
 import { isNan } from "speak-tts/lib/utils";
+import song from "./DuckSongEdited.mp3";
 
 const axios = require("axios");
 const _ = require("lodash");
@@ -102,6 +103,7 @@ function MainApp() {
     )
       endHelp();
     else if (message.includes("feed")) feedDuck();
+    else if (message.includes("song")) playSong();
     else if (message.includes("quack")) await textToSpeech("Quack to you too");
     else if (message.length > 1)
       await textToSpeech("Quack I'm just a duck I don't understand!");
@@ -246,6 +248,17 @@ function MainApp() {
     await textToSpeech(data.slip.advice);
   }
 
+  async function playSong() {
+    console.log("Playing");
+    const duckSong = new Audio(song);
+    await duckSong.play();
+    // async function playSound (audioFile) {
+    //   audioFile.play();
+    // };
+    // await playSound(duckSong);
+    console.log("Played");
+  }
+
   function feedDuck() {
     if (!isNaN(commits)) {
       const foodLeft = commits - 1;
@@ -298,6 +311,9 @@ function MainApp() {
           </button>
           <button style={styles.button} onClick={getFact}>
             Programming Fact
+          </button>
+          <button style={styles.button} onClick={playSong}>
+            Play The Duck Song
           </button>
           {isElectron() ? (
             <button style={styles.button} onClick={openWebsiteInBrower}>
