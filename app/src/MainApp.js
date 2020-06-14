@@ -76,7 +76,8 @@ function MainApp() {
     )
       getQuote();
     else if (message.includes("fact")) getFact();
-    else if (message.includes("advice")) giveAdvice();
+    else if (message.includes("advice") || message.includes("motivation"))
+      giveAdvice();
     else if (message.includes("question") || message.includes("quiz"))
       getQuestion();
     else if (
@@ -234,14 +235,13 @@ function MainApp() {
 
   async function giveAdvice() {
     const { data } = await axios.get("https://api.adviceslip.com/advice");
-    setText(data.slip.advice + "\n - Your code companion");
+    setText(data.slip.advice + "\n - Your Code Companion ♥");
     await textToSpeech(data.slip.advice);
   }
 
   return (
     <div className="App">
       <header className="App-header">
-        <p>{text}</p>
         <Modal user={user} changeUser={handleChange} />
         {confetti && <Confetti width={window.width} height={window.height} />}
         <p style={{ "white-space": "pre-wrap" }}>{text}</p>
@@ -312,7 +312,7 @@ const PROGQUES = [
   },
   {
     question:
-      "What is a short section of code made to complete a task?\nA. A function.\nB. A buffer.\nC. An array.\nD. An variable.",
+      "What is a short section of code made to complete a task?\nA. A function.\nB. A buffer.\nC. An array.\nD. A variable.",
     answer: "a",
   },
   {
