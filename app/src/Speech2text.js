@@ -103,6 +103,8 @@ class Speechy extends Component {
   render() {
     return (
       <div>
+        <div id="interim"></div>
+        <div id="final"></div>
         <button
           id="microphone-btn"
           onClick={this.toggleListen}
@@ -126,9 +128,6 @@ class Speechy extends Component {
             }}
           />
         </button>
-
-        <div id="interim"></div>
-        <div id="final"></div>
       </div>
     );
   }

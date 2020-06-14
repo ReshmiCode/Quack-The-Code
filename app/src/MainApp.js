@@ -6,6 +6,8 @@ import Speech from "speak-tts";
 import Speechy from "./Speech2text";
 import Modal from "./Modal";
 import Confetti from "react-confetti";
+import Wave from "react-wavify";
+import { isNan } from "speak-tts/lib/utils";
 
 const axios = require("axios");
 const _ = require("lodash");
@@ -24,7 +26,7 @@ var styles = {
 };
 
 function MainApp() {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState(null);
   const [quizQues, setQuizQues] = useState(-1);
   const [commits, setCommits] = useState(null);
   const [debugNumb, setDebugNumb] = useState(0);
@@ -130,10 +132,14 @@ function MainApp() {
   }
 
   async function getCommits() {
-    const commits = await axios.get(
+    if (!user) {
+      setCommits("Add your Github username in settings.");
+      return;
+    }
+    const githubCommits = await axios.get(
       `https://api.github.com/users/${user}/events`
     );
-    const push = _.filter(commits.data, { type: "PushEvent" });
+    const push = _.filter(githubCommits.data, { type: "PushEvent" });
     const today = _.filter(push, (obj) =>
       moment(obj.created_at).isSame(moment(), "day")
     );
@@ -239,18 +245,42 @@ function MainApp() {
     await textToSpeech(data.slip.advice);
   }
 
+  function feedDuck() {
+    if (!isNaN(commits)) {
+      const foodLeft = commits - 1;
+      setCommits(foodLeft);
+    } else setCommits("Sync your commits.");
+  }
+
   return (
     <div className="App">
       <header className="App-header">
+        <div style={{ position: "absolute", top: "0px", left: "25px" }}>
+          <p>
+            {commits}
+            {!isNaN(commits) ? " Breadcrumbs" : ""}
+          </p>
+        </div>
+        <p>{text}</p>
         <Modal user={user} changeUser={handleChange} />
         {confetti && <Confetti width={window.width} height={window.height} />}
         <p style={{ "white-space": "pre-wrap" }}>{text}</p>
         <Speechy parentCallback={callbackFunction} />
+        <Wave
+          fill="#3275a8"
+          style={{ marginTop: -120 }}
+          options={{
+            height: 40,
+            amplitude: 30,
+          }}
+        />
         <div style={{ flexDirection: "row" }}>
           <button style={styles.button} onClick={getCommits}>
             Sync Github Commits
           </button>
-          {commits && <p> {commits} Commits Today</p>}
+          <button style={styles.button} onClick={feedDuck}>
+            Feed The Duck (in commits)
+          </button>
           <button style={styles.button} onClick={getJoke}>
             Programming Joke
           </button>
@@ -276,7 +306,7 @@ function MainApp() {
             </button>
           ) : (
             <Link to="/">
-              <button style={styles.button}> Homepage </button>
+              <button style={styles.button}> Go To Home Page </button>
             </Link>
           )}
         </div>
