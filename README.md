@@ -14,7 +14,7 @@
 [MacOS Desktop App](https://storage.googleapis.com/quack-the-code/Quack%20The%20Code.zip)   
 [Windows Desktop App](https://storage.googleapis.com/quack-the-code/Quack%20The%20Code.exe)  
 [Google Assistant Directory](https://assistant.google.com/services/invoke/uid/00000097827472c9?hl=en)    
-[Demo Video]()    
+[Demo Video](https://www.youtube.com/watch?v=pxGTX0nk6RA)    
 [Devpost Submission](https://devpost.com/software/quack-the-code)
 
 ## Submission
