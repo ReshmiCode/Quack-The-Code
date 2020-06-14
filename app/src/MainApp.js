@@ -5,7 +5,7 @@ import "./App.css";
 import Speech from "speak-tts";
 import Speechy from "./Speech2text";
 
-const electron = window.require('electron')
+//const electron = window.require('electron')
 const axios = require("axios");
 const _ = require("lodash");
 const moment = require("moment");
@@ -61,7 +61,10 @@ function MainApp() {
 
   function openWebsiteInBrower() {
     console.log("Website");
-    electron.shell.openExternal("https://quack-the-code.web.app/");
+    if (isElectron()){
+      const electron = window.require('electron');
+      electron.shell.openExternal("https://quack-the-code.web.app/");
+    }
   }
 
   async function callMatchingFunction(message) {
