@@ -53,7 +53,14 @@ function HomePage() {
             Go to App{" "}
           </button>
         </Link>
-        <h2>Commands:</h2>
+        <h2>Sample Commands:</h2>
+        <p>"Help me debug this" To get debugging help</p>
+        <p>"Tell me a joke" To get a programming joke</p>
+        <p>"Tell me a programming quote" To get a programming quote</p>
+        <p>"Tell me an inspitational quote" To get an inspitational quote</p>
+        <p>"Inspire Me" To get an inspitational quote</p>
+        <p>"Tell me a fact" To get a programming fact</p>
+        <p>"How many commits did I make?" To get the number of commits that you made today</p>
         <button
             style={{
               width: 120,
@@ -85,6 +92,60 @@ function HomePage() {
             {" "}
             <a href="https://storage.googleapis.com/recycle-bun-macos/RecycleBunWindows.zip" target="_blank" rel="noopener noreferrer" download>
               Download for Windows
+            </a>
+            {" "}
+          </button>
+          <p>
+            Made with 💖 by Megan Tran, Reshmi Ranjith, Saloni Shivdasani, and Vincent Vu
+          </p>
+          <button
+            style={{
+              width: 120,
+              height: 40,
+              margin: 5,
+              borderRadius: 20,
+              backgroundColor: "#5295c7",
+              border: "none",
+              color: "#07002c",
+            }}
+          >
+            {" "}
+            <a href="https://devpost.com/software/recycle-bun" target="_blank" rel="noopener noreferrer" download>
+              More Info
+            </a>
+            {" "}
+          </button>
+          <button
+            style={{
+              width: 120,
+              height: 40,
+              margin: 5,
+              borderRadius: 20,
+              backgroundColor: "#5295c7",
+              border: "none",
+              color: "#07002c",
+            }}
+          >
+            {" "}
+            <a href="https://github.com/ReshmiCode/Coding-Companion" target="_blank" rel="noopener noreferrer" download>
+              Source Code
+            </a>
+            {" "}
+          </button>
+          <button
+            style={{
+              width: 120,
+              height: 40,
+              margin: 5,
+              borderRadius: 20,
+              backgroundColor: "#5295c7",
+              border: "none",
+              color: "#07002c",
+            }}
+          >
+            {" "}
+            <a href="mailto:hackathon.dream.team.utd@gmail.com" target="_blank" rel="noopener noreferrer" download>
+              Contact the Developers
             </a>
             {" "}
           </button>
