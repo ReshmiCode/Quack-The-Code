@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./App.css";
 import Speech from "speak-tts";
 import Speechy from "./Speech2text";
+import Modal from "./Modal";
 //const { shell } = require('electron');
 
 const axios = require("axios");
@@ -32,7 +33,7 @@ var styles = {
 function MainApp() {
   const [user, setUser] = useState("");
   const [quizQues, setQuizQues] = useState(-1);
-  const [commits, setCommits] = useState(0);
+  const [commits, setCommits] = useState(null);
   const [debugNumb, setDebugNumb] = useState(0);
   const [text, setText] = useState("");
 
@@ -234,22 +235,14 @@ function MainApp() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>{text}</p>
+        <Modal user={user} changeUser={handleChange} />
+        <p style={{ "white-space": "pre-wrap" }}>{text}</p>
         <Speechy parentCallback={callbackFunction} />
         <p> Ducky ^_^ </p>
-        <form onSubmit={handleSubmit}>
-          <label>
-            <input
-              style={styles.field}
-              type="text"
-              placeholder="   GitHub User"
-              value={user}
-              onChange={handleChange}
-            />
-          </label>
-          <input style={styles.button} type="submit" value="Get Commit" />
-        </form>
-        <p> {commits} Commits Today</p>
+        <button style={styles.button} onClick={getCommits}>
+          Get Commits
+        </button>
+        {commits && <p> {commits} Commits Today</p>}
 
         <button style={styles.button} onClick={getJoke}>
           Joke
