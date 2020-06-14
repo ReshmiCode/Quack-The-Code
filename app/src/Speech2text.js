@@ -103,7 +103,11 @@ class Speechy extends Component {
   render() {
     return (
       <div>
-        <button id="microphone-btn" onClick={this.toggleListen}>
+        <button
+          id="microphone-btn"
+          onClick={this.toggleListen}
+          style={{ outline: "none" }}
+        >
           <Spritesheet
             image={duck}
             widthFrame={750}
