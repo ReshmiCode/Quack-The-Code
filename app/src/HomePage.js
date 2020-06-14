@@ -20,7 +20,7 @@ function HomePage() {
     <div className="App">
       <header className="App-header">
         <h1>Quack The Code</h1>
-        <h2>Your Digital Coding Companion</h2>
+        <h2>Your Digital Rubber Duck Coding Companion</h2>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Rubber duck debugging is used around the world by millions of
@@ -54,7 +54,7 @@ function HomePage() {
           smart home speaker plugins so you can get hands free help and support.
         </p>
         <Link to="/app">
-          <button style={{}}> Go to App </button>
+          <button style={styles.button}> Go to App </button>
         </Link>
         <h2>Sample Commands:</h2>
         <p>"Help me debug this" To get debugging help</p>
