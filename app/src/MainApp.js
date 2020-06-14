@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import "./App.css";
 import Speech from "speak-tts";
 import Speechy from "./Speech2text";
-//const { shell } = require('electron');
 
+const electron = window.require('electron')
 const axios = require("axios");
 const _ = require("lodash");
 const moment = require("moment");
@@ -61,7 +61,7 @@ function MainApp() {
 
   function openWebsiteInBrower() {
     console.log("Website");
-    //shell.openExternal("https://github.com/ReshmiCode/Coding-Companion");
+    electron.shell.openExternal("https://quack-the-code.web.app/");
   }
 
   async function callMatchingFunction(message) {
