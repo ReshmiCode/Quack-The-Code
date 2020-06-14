@@ -6,6 +6,7 @@ import Speech from "speak-tts";
 import Speechy from "./Speech2text";
 import Modal from "./Modal";
 import Confetti from "react-confetti";
+import Wave from "react-wavify";
 
 const axios = require("axios");
 const _ = require("lodash");
@@ -252,6 +253,14 @@ function MainApp() {
         {confetti && <Confetti width={window.width} height={window.height} />}
         <p style={{ "white-space": "pre-wrap" }}>{text}</p>
         <Speechy parentCallback={callbackFunction} />
+        <Wave
+          fill="#3275a8"
+          style={{ marginTop: -120 }}
+          options={{
+            height: 40,
+            amplitude: 30,
+          }}
+        />
         <div style={{ flexDirection: "row" }}>
           <button style={styles.button} onClick={getCommits}>
             Get Commits
