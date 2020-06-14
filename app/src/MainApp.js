@@ -252,7 +252,7 @@ function MainApp() {
       const foodLeft = commits - 1;
       setCommits(foodLeft);
       setEating(true);
-      setTimeout(() => setEating(false), 800);
+      setTimeout(() => setEating(false), 1450);
     } else setCommits("Sync your commits.");
   }
 
@@ -290,7 +290,7 @@ function MainApp() {
             Sync Github Commits
           </button>
           <button style={styles.button} onClick={feedDuck}>
-            Feed The Duck (in commits)
+            Feed the Duck (in commits)
           </button>
           <button style={styles.button} onClick={getJoke}>
             Programming Joke

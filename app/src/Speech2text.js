@@ -117,8 +117,8 @@ class Speechy extends Component {
               image={eating}
               widthFrame={750}
               heightFrame={584}
-              steps={12}
-              fps={10}
+              steps={7}
+              fps={5}
               direction={"forward"}
               autoplay={true}
               loop={true}
