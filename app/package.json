@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "main": "public/electron.js",
+  "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -33,7 +34,7 @@
     "electron-dev": "concurrently \"cross-env BROWSER=none react-scripts start\" \"wait-on http://localhost:3000 && electron .\"",
     "postinstall": "electron-builder install-app-deps",
     "preelectron-pack": "yarn build",
-    "electron-pack": "electron-builder build -mw"
+    "electron-pack": "electron-builder -mw"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -60,7 +61,7 @@
     "wait-on": "^5.0.1"
   },
   "author": {
-    "name": "UTD Hackathon Dream Team",
+    "name": "UTD Hackathon Dream team",
     "email": "hackathon.dream.team.utd@gmail.com",
     "url": "http://www.saloni-shivdasani.codes/"
   },
@@ -69,14 +70,10 @@
     "productName": "Quack The Code",
     "copyright": "Copyright © 2020 ${author}",
     "mac": {
-      "icon": "./src/duck.icns",
       "category": "public.app-category.utilities"
     },
-    "win": {
-      "icon": "./src/duck0.png"
-    },
     "directories": {
-      "buildResources": "assets"
+      "buildResources": "src"
     }
   }
 }

@@ -71,7 +71,7 @@ function HomePage() {
           <button style={styles.button}>
             {" "}
             <a
-              href="https://storage.googleapis.com/quack-the-code/Quack%20The%20Code.zip"
+              href="https://storage.googleapis.com/recycle-bun-macos/RecycleBunWindows.zip"
               target="_blank"
               rel="noopener noreferrer"
               download
@@ -82,7 +82,7 @@ function HomePage() {
           <button style={styles.button}>
             {" "}
             <a
-              href="https://storage.googleapis.com/quack-the-code/Quack%20The%20Code.exe"
+              href="https://storage.googleapis.com/recycle-bun-macos/RecycleBunWindows.zip"
               target="_blank"
               rel="noopener noreferrer"
               download
@@ -93,7 +93,7 @@ function HomePage() {
           <button style={styles.button}>
             {" "}
             <a
-              href="https://quack-the-code.web.app/app"
+              href="https://storage.googleapis.com/recycle-bun-macos/RecycleBunWindows.zip"
               target="_blank"
               rel="noopener noreferrer"
               download
