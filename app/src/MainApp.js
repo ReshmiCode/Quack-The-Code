@@ -236,7 +236,6 @@ function MainApp() {
       <header className="App-header">
         <p>{text}</p>
         <Speechy parentCallback={callbackFunction} />
-        <p> Ducky ^_^ </p>
         <form onSubmit={handleSubmit}>
           <label>
             <input
@@ -250,35 +249,36 @@ function MainApp() {
           <input style={styles.button} type="submit" value="Get Commit" />
         </form>
         <p> {commits} Commits Today</p>
-
-        <button style={styles.button} onClick={getJoke}>
-          Joke
-        </button>
-        <button style={styles.button} onClick={getProgrammingQuote}>
-          Programming Quote
-        </button>
-        <button style={styles.button} onClick={getQuote}>
-          Inspirational Quote
-        </button>
-        <button style={styles.button} onClick={getQuestion}>
-          Programming Question
-        </button>
-        <button style={styles.button} onClick={giveAdvice}>
-          Advice
-        </button>
-        <button style={styles.button} onClick={getFact}>
-          Programming Fact
-        </button>
-        {isElectron() ? (
-          <button onClick={openWebsiteInBrower}>
-            {" "}
-            View Website in Browser{" "}
+        <div style={{ flexDirection: "row" }}>
+          <button style={styles.button} onClick={getJoke}>
+            Programming Joke
           </button>
-        ) : (
-          <Link to="/">
-            <button style={styles.button}> Homepage </button>
-          </Link>
-        )}
+          <button style={styles.button} onClick={getProgrammingQuote}>
+            Programming Quote
+          </button>
+          <button style={styles.button} onClick={getQuote}>
+            Inspirational Quote
+          </button>
+          <button style={styles.button} onClick={getQuestion}>
+            Programming Question
+          </button>
+          <button style={styles.button} onClick={giveAdvice}>
+            Motivation & Advice
+          </button>
+          <button style={styles.button} onClick={getFact}>
+            Programming Fact
+          </button>
+          {isElectron() ? (
+            <button style={styles.button} onClick={openWebsiteInBrower}>
+              {" "}
+              View Website in Browser{" "}
+            </button>
+          ) : (
+            <Link to="/">
+              <button style={styles.button}> Homepage </button>
+            </Link>
+          )}
+        </div>
       </header>
     </div>
   );

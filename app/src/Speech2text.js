@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import duck from "./spritesheet.png";
 import quack from "./pg.mp3";
 
-
 import Spritesheet from "react-responsive-spritesheet";
 //------------------------SPEECH RECOGNITION-----------------------------
 
@@ -31,8 +30,6 @@ class Speechy extends Component {
   async sendData() {
     this.props.parentCallback(this.state.finalTranscript);
   }
-
-  
 
   toggleListen() {
     this.setState(
@@ -101,7 +98,7 @@ class Speechy extends Component {
   render() {
     const quackAudio = new Audio(quack);
 
-    const playSound = audioFile => {
+    const playSound = (audioFile) => {
       audioFile.play();
     };
 
@@ -110,8 +107,8 @@ class Speechy extends Component {
         <button id="microphone-btn" onClick={() => playSound(quackAudio)}>
           <Spritesheet
             image={duck}
-            widthFrame={780}
-            heightFrame={607}
+            widthFrame={750}
+            heightFrame={584}
             steps={12}
             fps={8}
             direction={"forward"}
