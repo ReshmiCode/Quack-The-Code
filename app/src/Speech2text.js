@@ -1,6 +1,8 @@
 "use strict";
 import React, { Component } from "react";
 import duck from "./spritesheet.png";
+import quack from "./pg.mp3";
+
 
 import Spritesheet from "react-responsive-spritesheet";
 //------------------------SPEECH RECOGNITION-----------------------------
@@ -29,6 +31,8 @@ class Speechy extends Component {
   async sendData() {
     this.props.parentCallback(this.state.finalTranscript);
   }
+
+  
 
   toggleListen() {
     this.setState(
@@ -95,9 +99,15 @@ class Speechy extends Component {
   }
 
   render() {
+    const quackAudio = new Audio(quack);
+
+    const playSound = audioFile => {
+      audioFile.play();
+    };
+
     return (
       <div>
-        <button id="microphone-btn" onClick={this.toggleListen}>
+        <button id="microphone-btn" onClick={() => playSound(quackAudio)}>
           <Spritesheet
             image={duck}
             widthFrame={780}
