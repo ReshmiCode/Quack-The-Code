@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 var styles = {
   button: {
     width: 120,
-    height: 40,
+    height: 45,
     margin: 5,
     borderRadius: 20,
     backgroundColor: "#5295c7",
@@ -92,13 +92,10 @@ function HomePage() {
           </button>
           <button style={styles.button}>
             {" "}
-            <a
-              href="https://storage.googleapis.com/quack-the-code/Quack%20The%20Code.zip"
+            <a href="https://assistant.google.com/services/invoke/uid/00000097827472c9?hl=en"
               target="_blank"
-              rel="noopener noreferrer"
-              download
-            >
-              Download for Google Assistant
+              rel="noopener noreferrer">
+                Ask Google to Talk To Quack The Duck
             </a>{" "}
           </button>
         </div>
