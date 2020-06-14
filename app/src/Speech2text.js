@@ -42,8 +42,13 @@ class Speechy extends Component {
 
   handleListen() {
     console.log("listening?", this.state.listening);
+    const quackAudio = new Audio(quack);
 
+    const playSound = (audioFile) => {
+      audioFile.play();
+    };
     if (this.state.listening) {
+      playSound(quackAudio);
       recognition.start();
       recognition.onend = () => {
         console.log("...continue listening...");
@@ -96,15 +101,9 @@ class Speechy extends Component {
   }
 
   render() {
-    const quackAudio = new Audio(quack);
-
-    const playSound = (audioFile) => {
-      audioFile.play();
-    };
-
     return (
       <div>
-        <button id="microphone-btn" onClick={() => playSound(quackAudio)}>
+        <button id="microphone-btn" onClick={this.toggleListen}>
           <Spritesheet
             image={duck}
             widthFrame={750}
