@@ -13,7 +13,7 @@
 [Alternate Website](https://quack-the-code.web.app/)  
 [MacOS Desktop App](https://storage.googleapis.com/quack-the-code/Quack%20The%20Code.zip)   
 [Windows Desktop App](https://storage.googleapis.com/quack-the-code/Quack%20The%20Code.exe)  
-[Google Assistant Directory]()    
+[Google Assistant Directory](https://assistant.google.com/services/invoke/uid/00000097827472c9?hl=en)    
 [Demo Video]()    
 [Devpost Submission](https://devpost.com/software/quack-the-code)
 
