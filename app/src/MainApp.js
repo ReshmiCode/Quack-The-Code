@@ -33,6 +33,7 @@ function MainApp() {
   const [user, setUser] = useState("");
   const [quizQues, setQuizQues] = useState(-1);
   const [commits, setCommits] = useState(0);
+  const [debugNumb, setDebugNumb] = useState(0);
   const [text, setText] = useState("");
 
   async function callbackFunction(childData) {
@@ -87,6 +88,14 @@ function MainApp() {
     )
       getCommits();
     else if (message.includes("answer")) checkAnswer(message);
+    else if (
+      message.includes("help") ||
+      message.includes("debug") ||
+      message.includes("next")
+    )
+      getHelp();
+    else if (message.includes("fix") || message.includes("thank you"))
+      endHelp();
     else if (message.includes("quack")) await textToSpeech("Quack to you too");
     else if (message.length > 1)
       await textToSpeech("Quack I'm just a duck I don't understand!");
@@ -100,6 +109,20 @@ function MainApp() {
       .catch((e) => {
         console.error("An error occurred :", e);
       });
+  }
+
+  async function getHelp() {
+    await textToSpeech(CODINGQUES[debugNumb]);
+    const nextIndex = debugNumb + 1;
+    if (nextIndex === CODINGQUES.length) setDebugNumb(0);
+    else setDebugNumb(nextIndex);
+  }
+
+  async function endHelp() {
+    await textToSpeech(
+      "Glad to help, that was a very productive coding session! Nice work!"
+    );
+    setDebugNumb(0);
   }
 
   async function getCommits() {
@@ -262,10 +285,22 @@ function MainApp() {
 
 export default MainApp;
 
+const CODINGQUES = [
+  "Hello, let's start our debugging session! Can you describe the problem? Please use small sentences, I am only a duck.",
+  "Can you explain what the function, object, or thing is that is not working?",
+  "Is there any chance you could break this down into smaller parts?",
+  "So does it just do one thing? Any chance you could test it seperately?",
+  "Do you fully understand what it does? Do you need to research any parts?",
+  "What parts of it are you certain work and what are your unknowns?",
+  "Is it being compiled? Can you restart the complier or build?",
+  "Could it, or the variables in it, be overriden?",
+  "Sorry, my super-duck-powers have failed. Have you tried google or stack overflow? This debugging session will end.",
+];
+
 const PROGQUES = [
   {
     question:
-      "What is a syntax error? A. An error due to incorrect logic. B. An error due to the language rules being broken. C. An error you will never find. D. An error caused by bad network connection.",
+      "What is a syntax error?A. An error due to incorrect logic. B. An error due to the language rules being broken. C. An error you will never find. D. An error caused by bad network connection.",
     answer: "b",
   },
   {
