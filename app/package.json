@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "main": "public/electron.js",
-  "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -70,7 +69,11 @@
     "productName": "Quack The Code",
     "copyright": "Copyright © 2020 ${author}",
     "mac": {
+      "icon": "./src/duck.icns",
       "category": "public.app-category.utilities"
+    },
+    "win": {
+      "icon": "./src/duck0.png"
     },
     "directories": {
       "buildResources": "src"
