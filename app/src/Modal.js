@@ -32,7 +32,6 @@ const styles = {
 Modal.setAppElement("#root");
 
 export default function App(props) {
-  var subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
   function openModal() {
     setIsOpen(true);
@@ -43,9 +42,9 @@ export default function App(props) {
   }
 
   return (
-    <div>
+    <div style={{ position: "absolute", top: "20px", right: "15px" }}>
       <button style={styles.button} onClick={openModal}>
-        Open Modal
+        Settings
       </button>
       <Modal
         isOpen={modalIsOpen}
