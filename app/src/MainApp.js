@@ -267,13 +267,21 @@ function MainApp() {
         <p style={{ "white-space": "pre-wrap" }}>{text}</p>
         <Speechy parentCallback={callbackFunction} />
         <Wave
-          fill="#3275a8"
+          fill="url(#gradient)"
           style={{ marginTop: -120 }}
           options={{
-            height: 40,
-            amplitude: 30,
+            height: 50,
+            amplitude: 40,
           }}
-        />
+        >
+          <defs>
+            <linearGradient id="gradient" gradientTransform="rotate(90)">
+              <stop offset="10%" stopColor="#bee1ee" />
+              <stop offset="90%" stopColor="#1e76ab" />
+            </linearGradient>
+          </defs>
+        </Wave>
+
         <div style={{ flexDirection: "row" }}>
           <button style={styles.button} onClick={getCommits}>
             Sync Github Commits
