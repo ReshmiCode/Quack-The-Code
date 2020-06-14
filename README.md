@@ -11,8 +11,8 @@
 
 [Website](https://quack-the-code.tech)  
 [Alternate Website](https://quack-the-code.web.app/)  
-[MacOS Desktop App]()   
-[Windows Desktop App]()  
+[MacOS Desktop App](https://storage.googleapis.com/quack-the-code/Quack%20The%20Code.zip)   
+[Windows Desktop App](https://storage.googleapis.com/quack-the-code/Quack%20The%20Code.exe)  
 [Google Assistant Directory]()   
 [Demo Video]()  
 [Devpost Submission](https://devpost.com/software/quack-the-code)  
