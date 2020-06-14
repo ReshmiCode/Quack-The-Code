@@ -12,9 +12,13 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+#microphone-btn {
+  background-color: transparent;
+  border: 0px;
+}
 
 .App-header {
-  background-color: #80cee1;
+  background-color: #07002c;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -25,7 +29,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #07002c;
 }
 
 @keyframes App-logo-spin {
