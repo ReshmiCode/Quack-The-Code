@@ -80,7 +80,11 @@ function MainApp() {
     )
       getQuote();
     else if (message.includes("fact")) getFact();
-    else if (message.includes("advice") || message.includes("motivation"))
+    else if (
+      message.includes("advice") ||
+      message.includes("motivation") ||
+      message.includes("motivate")
+    )
       giveAdvice();
     else if (message.includes("question") || message.includes("quiz"))
       getQuestion();

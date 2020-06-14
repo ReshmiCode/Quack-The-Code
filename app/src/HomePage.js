@@ -19,7 +19,8 @@ function HomePage() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Quack The Code... Your Digital Coding Companion</h1>
+        <h1>Quack The Code</h1>
+        <h2>Your Digital Coding Companion</h2>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Rubber duck debugging is used around the world by millions of
@@ -30,7 +31,7 @@ function HomePage() {
           what if you don’t have a rubber duck? Have you already heard about the
           rubber duck debugging and want to try a digital version? Would you
           like to try rubber duck debugging and want your duck to also have
-          additional functionality? Introducing Quack The Duck, your very own
+          additional functionality? Introducing Quack The Code, your very own
           digital rubber duck coding companion!
         </p>
         <iframe
@@ -43,7 +44,7 @@ function HomePage() {
           title="Demo Video"
         ></iframe>
         <p>
-          Quack The Duck is a website and desktop app which brings you all the
+          Quack The Code is a website and desktop app which brings you all the
           aid of rubber duck debugging. You can explain your code, line by line,
           to it and it sits patiently listening for you to notice your mistake.
           If you can’t figure it on your own, it can ask you guided questions
@@ -66,76 +67,80 @@ function HomePage() {
           "How many commits did I make?" To get the number of commits that you
           made today
         </p>
-        <button style={styles.button}>
-          {" "}
-          <a
-            href="https://storage.googleapis.com/recycle-bun-macos/RecycleBunWindows.zip"
-            target="_blank"
-            rel="noopener noreferrer"
-            download
-          >
-            Download for MacOS
-          </a>{" "}
-        </button>
-        <button style={styles.button}>
-          {" "}
-          <a
-            href="https://storage.googleapis.com/recycle-bun-macos/RecycleBunWindows.zip"
-            target="_blank"
-            rel="noopener noreferrer"
-            download
-          >
-            Download for Windows
-          </a>{" "}
-        </button>
-        <button style={styles.button}>
-          {" "}
-          <a
-            href="https://storage.googleapis.com/recycle-bun-macos/RecycleBunWindows.zip"
-            target="_blank"
-            rel="noopener noreferrer"
-            download
-          >
-            Download for Google Assistant
-          </a>{" "}
-        </button>
+        <div style={{ flexDirection: "row" }}>
+          <button style={styles.button}>
+            {" "}
+            <a
+              href="https://storage.googleapis.com/recycle-bun-macos/RecycleBunWindows.zip"
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+            >
+              Download for MacOS
+            </a>{" "}
+          </button>
+          <button style={styles.button}>
+            {" "}
+            <a
+              href="https://storage.googleapis.com/recycle-bun-macos/RecycleBunWindows.zip"
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+            >
+              Download for Windows
+            </a>{" "}
+          </button>
+          <button style={styles.button}>
+            {" "}
+            <a
+              href="https://storage.googleapis.com/recycle-bun-macos/RecycleBunWindows.zip"
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+            >
+              Download for Google Assistant
+            </a>{" "}
+          </button>
+        </div>
         <p>
           Made with 💖 by Megan Tran, Reshmi Ranjith, Saloni Shivdasani, and
           Vincent Vu
         </p>
-        <button style={styles.button}>
-          {" "}
-          <a
-            href="https://devpost.com/software/recycle-bun"
-            target="_blank"
-            rel="noopener noreferrer"
-            download
-          >
-            More Info
-          </a>{" "}
-        </button>
-        <button style={styles.button}>
-          {" "}
-          <a
-            href="https://github.com/ReshmiCode/Coding-Companion"
-            target="_blank"
-            rel="noopener noreferrer"
-            download
-          >
-            Source Code
-          </a>{" "}
-        </button>
-        <button style={styles.button}>
-          {" "}
-          <a
-            href="mailto:hackathon.dream.team.utd@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            download
-          >
-            Contact the Developers
-          </a>{" "}
-        </button>
+        <div style={{ flexDirection: "row" }}>
+          <button style={styles.button}>
+            {" "}
+            <a
+              href="https://devpost.com/software/quack-the-code"
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+            >
+              More Info (Devpost)
+            </a>{" "}
+          </button>
+          <button style={styles.button}>
+            {" "}
+            <a
+              href="https://github.com/ReshmiCode/Coding-Companion"
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+            >
+              View Source Code
+            </a>{" "}
+          </button>
+          <button style={styles.button}>
+            {" "}
+            <a
+              href="mailto:hackathon.dream.team.utd@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+            >
+              Contact the Developers
+            </a>{" "}
+          </button>
+        </div>
       </header>
     </div>
   );
