@@ -7,6 +7,7 @@ import Speechy from "./Speech2text";
 import Modal from "./Modal";
 import Confetti from "react-confetti";
 import Wave from "react-wavify";
+import { isNan } from "speak-tts/lib/utils";
 
 const axios = require("axios");
 const _ = require("lodash");
@@ -25,9 +26,9 @@ var styles = {
 };
 
 function MainApp() {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState(null);
   const [quizQues, setQuizQues] = useState(-1);
-  const [commits, setCommits] = useState(0);
+  const [commits, setCommits] = useState(null);
   const [debugNumb, setDebugNumb] = useState(0);
   const [confetti, setConfetti] = useState(false);
   const [text, setText] = useState("");
@@ -130,10 +131,14 @@ function MainApp() {
   }
 
   async function getCommits() {
-    const commits = await axios.get(
+    if (!user) {
+      setCommits("Add your Github username in settings.");
+      return;
+    }
+    const githubCommits = await axios.get(
       `https://api.github.com/users/${user}/events`
     );
-    const push = _.filter(commits.data, { type: "PushEvent" });
+    const push = _.filter(githubCommits.data, { type: "PushEvent" });
     const today = _.filter(push, (obj) =>
       moment(obj.created_at).isSame(moment(), "day")
     );
@@ -240,17 +245,20 @@ function MainApp() {
   }
 
   function feedDuck() {
-    if (commits) {
+    if (!isNaN(commits)) {
       const foodLeft = commits - 1;
       setCommits(foodLeft);
-    } else setCommits(0);
+    } else setCommits("Sync your commits.");
   }
 
   return (
     <div className="App">
       <header className="App-header">
         <div style={{ position: "absolute", top: "0px", left: "25px" }}>
-          <p>{commits} Breadcrumbs</p>
+          <p>
+            {commits}
+            {!isNaN(commits) ? " Breadcrumbs" : ""}
+          </p>
         </div>
         <p>{text}</p>
         <Modal user={user} changeUser={handleChange} />

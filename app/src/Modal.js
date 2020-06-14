@@ -25,6 +25,7 @@ const styles = {
     backgroundColor: "#5295c7",
     border: "none",
     color: "#07002c",
+    outline: "none",
   },
 };
 
@@ -70,12 +71,14 @@ export default function App(props) {
           <input
             style={styles.field}
             type="text"
-            placeholder="   GitHub Username"
+            placeholder="GitHub Username"
             value={props.user}
             onChange={props.changeUser}
           />
         </label>
-        <button style={styles.button}>Save</button>
+        <button onClick={closeModal} style={styles.button}>
+          Save
+        </button>
       </Modal>
     </div>
   );
