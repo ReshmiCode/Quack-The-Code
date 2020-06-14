@@ -286,7 +286,7 @@ function MainApp() {
 export default MainApp;
 
 const CODINGQUES = [
-  "Hello, let's start our debugging session! Can you describe the problem? Please use small sentences, I am only a duck.",
+  "Hello, let's get quacking! Can you describe the problem? Please use small sentences, I am only a duck.",
   "Can you explain what the function, object, or thing is that is not working?",
   "Is there any chance you could break this down into smaller parts?",
   "So does it just do one thing? Any chance you could test it seperately?",
