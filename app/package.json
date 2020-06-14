@@ -9,6 +9,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
+    "cross-env": "^7.0.2",
     "electron-is-dev": "^1.2.0",
     "is-electron": "^2.2.0",
     "lodash": "^4.17.15",
@@ -27,7 +28,7 @@
     "test": "rescripts test",
     "eject": "react-scripts eject",
     "electron-start": "electron .",
-    "electron-dev": "concurrently \"BROWSER=none react-scripts start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-dev": "concurrently \"cross-env BROWSER=none react-scripts start\" \"wait-on http://localhost:3000 && electron .\"",
     "postinstall": "electron-builder install-app-deps",
     "preelectron-pack": "yarn build",
     "electron-pack": "electron-builder -mw"
