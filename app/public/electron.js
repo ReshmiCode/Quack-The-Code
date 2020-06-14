@@ -22,7 +22,7 @@ function createWindow () {
         
     // and load the index.html of the app.     
     //window.loadFile('index.html')
-    window.loadURL(isDev ? 'http://localhost:3000/app' : `file://${path.join(__dirname, '../build/index.html')}`);
+    window.loadURL(isDev ? 'https://quack-the-code.web.app/app' : `file://${path.join(__dirname, '../build/index.html')}`);
     window.on('closed', () => mainWindow = null);
 }      
 app.on('ready', createWindow);
