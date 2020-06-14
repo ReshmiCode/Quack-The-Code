@@ -1,6 +1,7 @@
 "use strict";
 import React, { Component } from "react";
 import duck from "./spritesheet.png";
+import eating from "./spritesheet_eat.png";
 import quack from "./pg.mp3";
 
 import Spritesheet from "react-responsive-spritesheet";
@@ -110,23 +111,39 @@ class Speechy extends Component {
           onClick={this.toggleListen}
           style={{ outline: "none" }}
         >
-          <Spritesheet
-            image={duck}
-            widthFrame={750}
-            heightFrame={584}
-            steps={12}
-            fps={8}
-            direction={"forward"}
-            autoplay={false}
-            loop={true}
-            isResponsive={true}
-            onMouseOver={(spritesheet) => {
-              spritesheet.play();
-            }}
-            onMouseOut={(spritesheet) => {
-              spritesheet.pause();
-            }}
-          />
+          {this.props.eating ? (
+            <Spritesheet
+              key={this.props.eating}
+              image={eating}
+              widthFrame={750}
+              heightFrame={584}
+              steps={7}
+              fps={5}
+              direction={"forward"}
+              autoplay={true}
+              loop={true}
+              isResponsive={true}
+            />
+          ) : (
+            <Spritesheet
+              key={this.props.eating}
+              image={duck}
+              widthFrame={750}
+              heightFrame={584}
+              steps={12}
+              fps={8}
+              direction={"forward"}
+              autoplay={false}
+              loop={true}
+              isResponsive={true}
+              onMouseOver={(spritesheet) => {
+                spritesheet.play();
+              }}
+              onMouseOut={(spritesheet) => {
+                spritesheet.pause();
+              }}
+            />
+          )}
         </button>
       </div>
     );

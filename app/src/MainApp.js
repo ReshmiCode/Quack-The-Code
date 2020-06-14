@@ -23,16 +23,18 @@ var styles = {
     backgroundColor: "#5295c7",
     border: "none",
     color: "#07002c",
+    outline: "none",
   },
 };
 
 function MainApp() {
   const [user, setUser] = useState(null);
   const [quizQues, setQuizQues] = useState(-1);
-  const [commits, setCommits] = useState(null);
+  const [commits, setCommits] = useState("Quack The Code");
   const [debugNumb, setDebugNumb] = useState(0);
   const [confetti, setConfetti] = useState(false);
   const [text, setText] = useState("");
+  const [eating, setEating] = useState(false);
 
   async function callbackFunction(childData) {
     callMatchingFunction(childData);
@@ -79,7 +81,11 @@ function MainApp() {
     )
       getQuote();
     else if (message.includes("fact")) getFact();
-    else if (message.includes("advice") || message.includes("motivation"))
+    else if (
+      message.includes("advice") ||
+      message.includes("motivation") ||
+      message.includes("motivate")
+    )
       giveAdvice();
     else if (message.includes("question") || message.includes("quiz"))
       getQuestion();
@@ -263,6 +269,8 @@ function MainApp() {
     if (!isNaN(commits)) {
       const foodLeft = commits - 1;
       setCommits(foodLeft);
+      setEating(true);
+      setTimeout(() => setEating(false), 1450);
     } else setCommits("Sync your commits.");
   }
 
@@ -278,21 +286,29 @@ function MainApp() {
         <Modal user={user} changeUser={handleChange} />
         {confetti && <Confetti width={window.width} height={window.height} />}
         <p style={{ "white-space": "pre-wrap" }}>{text}</p>
-        <Speechy parentCallback={callbackFunction} />
+        <Speechy parentCallback={callbackFunction} eating={eating} />
         <Wave
-          fill="#3275a8"
+          fill="url(#gradient)"
           style={{ marginTop: -120 }}
           options={{
-            height: 40,
-            amplitude: 30,
+            height: 50,
+            amplitude: 40,
           }}
-        />
+        >
+          <defs>
+            <linearGradient id="gradient" gradientTransform="rotate(90)">
+              <stop offset="10%" stopColor="#bee1ee" />
+              <stop offset="90%" stopColor="#1e76ab" />
+            </linearGradient>
+          </defs>
+        </Wave>
+
         <div style={{ flexDirection: "row" }}>
           <button style={styles.button} onClick={getCommits}>
             Sync Github Commits
           </button>
           <button style={styles.button} onClick={feedDuck}>
-            Feed The Duck (in commits)
+            Feed the Duck (in commits)
           </button>
           <button style={styles.button} onClick={getJoke}>
             Programming Joke
