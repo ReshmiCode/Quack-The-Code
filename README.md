@@ -9,12 +9,12 @@
 
 ## Links
 
-[Website](https://quack-the-code.tech)
-[Alternate Website](https://quack-the-code.web.app/)
-[MacOS Desktop App]()
-[Windows Desktop App]()
-[Google Assistant Directory]()  
-[Demo Video]()  
+[Website](https://quack-the-code.tech)  
+[Alternate Website](https://quack-the-code.web.app/)  
+[MacOS Desktop App](https://storage.googleapis.com/quack-the-code/Quack%20The%20Code.zip)   
+[Windows Desktop App](https://storage.googleapis.com/quack-the-code/Quack%20The%20Code.exe)  
+[Google Assistant Directory]()    
+[Demo Video]()    
 [Devpost Submission](https://devpost.com/software/quack-the-code)
 
 ## Submission
@@ -57,4 +57,4 @@ We learnt a lot about developing Amazon and Google smart home activities and thi
 
 ### What's next for Quack The Code
 
-In the future, we plan to expand Quack The Code to different animals? We also plan to connect it to other tasks besides coding, such work/school websites like online classes. We would like to make it a more useful productivity app for computer science students that would reward things like finishing homework.
+In the future, we plan to expand Quack The Code to different animals. We also plan to connect it to other tasks besides coding, such work/school websites like online classes. We would like to make it a more useful productivity app for computer science students that would reward things like finishing homework.
