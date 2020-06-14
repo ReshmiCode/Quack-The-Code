@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 
-const customStyles = {
+const styles = {
   content: {
     top: "10%",
     left: "80%",
@@ -10,20 +10,23 @@ const customStyles = {
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
   },
+  field: {
+    borderRadius: 20,
+    width: 200,
+    height: 40,
+    border: "none",
+    backgroundColor: "#d4eaf9",
+  },
 };
 
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement("#root");
 
-export default function App() {
+export default function App(props) {
   var subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
   function openModal() {
     setIsOpen(true);
-  }
-
-  function afterOpenModal() {
-    subtitle.style.color = "#f00";
   }
 
   function closeModal() {
@@ -35,21 +38,22 @@ export default function App() {
       <button onClick={openModal}>Open Modal</button>
       <Modal
         isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
-        style={customStyles}
+        style={styles}
         contentLabel="Example Modal"
       >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
+        <h2>Settings</h2>
         <button onClick={closeModal}>close</button>
-        <div>I am a modal</div>
-        <form>
-          <input />
-          <button>tab navigation</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
-        </form>
+        <label>
+          <input
+            style={styles.field}
+            type="text"
+            placeholder="GitHub User"
+            value={props.user}
+            onChange={props.changeUser}
+          />
+        </label>
+        <button>Save User</button>
       </Modal>
     </div>
   );

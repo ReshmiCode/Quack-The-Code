@@ -235,21 +235,12 @@ function MainApp() {
   return (
     <div className="App">
       <header className="App-header">
-        <Modal />
+        <Modal user={user} changeUser={handleChange} />
         <Speechy parentCallback={callbackFunction} />
         <p> Ducky ^_^ </p>
-        <form onSubmit={handleSubmit}>
-          <label>
-            <input
-              style={styles.field}
-              type="text"
-              placeholder="   GitHub User"
-              value={user}
-              onChange={handleChange}
-            />
-          </label>
-          <input style={styles.button} type="submit" value="Get Commit" />
-        </form>
+        <button style={styles.button} onClick={getCommits}>
+          Get Commits
+        </button>
         {commits && <p> {commits} Commits Today</p>}
 
         <button style={styles.button} onClick={getJoke}>
