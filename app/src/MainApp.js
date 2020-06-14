@@ -5,6 +5,7 @@ import "./App.css";
 import Speech from "speak-tts";
 import Speechy from "./Speech2text";
 import Modal from "./Modal";
+import Confetti from "react-confetti";
 
 const axios = require("axios");
 const _ = require("lodash");
@@ -27,6 +28,7 @@ function MainApp() {
   const [quizQues, setQuizQues] = useState(-1);
   const [commits, setCommits] = useState(null);
   const [debugNumb, setDebugNumb] = useState(0);
+  const [confetti, setConfetti] = useState(false);
   const [text, setText] = useState("");
 
   async function callbackFunction(childData) {
@@ -90,7 +92,11 @@ function MainApp() {
       message.includes("next")
     )
       getHelp();
-    else if (message.includes("fix") || message.includes("thank you"))
+    else if (
+      message.includes("fix") ||
+      message.includes("thank you") ||
+      message.includes("done")
+    )
       endHelp();
     else if (message.includes("quack")) await textToSpeech("Quack to you too");
     else if (message.length > 1)
@@ -118,6 +124,7 @@ function MainApp() {
     await textToSpeech(
       "Glad to help, that was a very productive coding session! Nice work!"
     );
+    showConfetti();
     setDebugNumb(0);
   }
 
@@ -142,16 +149,11 @@ function MainApp() {
     setUser(event.target.value);
   }
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-    await getCommits();
-  }
-
   async function getJoke() {
     const { data } = await axios.get(
       "https://official-joke-api.appspot.com/jokes/programming/random"
     );
-    setText(data[0].setup + "\n - " + data[0].punchline);
+    setText(data[0].setup + "\n" + data[0].punchline);
     await textToSpeech(data[0].setup);
     await textToSpeech(data[0].punchline);
   }
@@ -182,37 +184,46 @@ function MainApp() {
   async function checkAnswer(message) {
     const words = message.split(" ");
     if (words.indexOf("a") != -1) {
-      if (PROGQUES[quizQues].answer === "a")
+      if (PROGQUES[quizQues].answer === "a") {
         await textToSpeech("Correct answer! Quack good job!");
-      else
+        showConfetti();
+      } else
         await textToSpeech(
           "Incorrect answer. The right answer was " + PROGQUES[quizQues].answer
         );
     }
     if (words.indexOf("b") != -1) {
-      if (PROGQUES[quizQues].answer === "b")
+      if (PROGQUES[quizQues].answer === "b") {
         await textToSpeech("Correct answer!");
-      else
+        showConfetti();
+      } else
         await textToSpeech(
           "Incorrect answer. The right answer was " + PROGQUES[quizQues].answer
         );
     }
     if (words.indexOf("c") != -1) {
-      if (PROGQUES[quizQues].answer === "c")
+      if (PROGQUES[quizQues].answer === "c") {
         await textToSpeech("Correct answer!");
-      else
+        showConfetti();
+      } else
         await textToSpeech(
           "Incorrect answer. The right answer was " + PROGQUES[quizQues].answer
         );
     }
     if (words.indexOf("d") != -1) {
-      if (PROGQUES[quizQues].answer === "d")
+      if (PROGQUES[quizQues].answer === "d") {
         await textToSpeech("Correct answer!");
-      else
+        showConfetti();
+      } else
         await textToSpeech(
           "Incorrect answer. The right answer was " + PROGQUES[quizQues].answer
         );
     }
+  }
+
+  function showConfetti() {
+    setConfetti(true);
+    setTimeout(() => setConfetti(false), 9000);
   }
 
   async function getFact() {
@@ -232,13 +243,14 @@ function MainApp() {
       <header className="App-header">
         <p>{text}</p>
         <Modal user={user} changeUser={handleChange} />
+        {confetti && <Confetti width={window.width} height={window.height} />}
+        <p style={{ "white-space": "pre-wrap" }}>{text}</p>
         <Speechy parentCallback={callbackFunction} />
         <div style={{ flexDirection: "row" }}>
           <button style={styles.button} onClick={getCommits}>
             Sync Github Commits
           </button>
           {commits && <p> {commits} Commits Today</p>}
-
           <button style={styles.button} onClick={getJoke}>
             Programming Joke
           </button>
