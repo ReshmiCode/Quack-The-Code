@@ -101,6 +101,7 @@ function MainApp() {
       message.includes("done")
     )
       endHelp();
+    else if (message.includes("feed")) feedDuck();
     else if (message.includes("quack")) await textToSpeech("Quack to you too");
     else if (message.length > 1)
       await textToSpeech("Quack I'm just a duck I don't understand!");
