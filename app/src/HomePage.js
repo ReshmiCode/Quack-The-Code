@@ -34,15 +34,6 @@ function HomePage() {
           additional functionality? Introducing Quack The Code, your very own
           digital rubber duck coding companion!
         </p>
-        <iframe
-          width="840"
-          height="473"
-          src="https://www.youtube.com/embed/kU_pBXSsnk4"
-          frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          title="Demo Video"
-        ></iframe>
         <p>
           Quack The Code is a website and desktop app which brings you all the
           aid of rubber duck debugging. You can explain your code, line by line,
