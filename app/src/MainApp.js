@@ -12,14 +12,12 @@ const moment = require("moment");
 
 function MainApp() {
   const [user, setUser] = useState("");
-  const [message, setMessage] = useState("");
+  const [quizQues, setQuizQues] = useState(-1);
   const [commits, setCommits] = useState(0);
   const [text, setText] = useState("");
 
   async function callbackFunction(childData) {
     console.log("Message from child:", childData);
-    setMessage(childData);
-    //setText(childData);
     callMatchingFunction(childData);
   }
 
@@ -70,6 +68,7 @@ function MainApp() {
       message.includes("github")
     )
       getCommits();
+    else if (message.includes("answer")) checkAnswer(message);
     else if (message.includes("quack")) await textToSpeech("Quack to you too");
     else if (message.length > 1)
       await textToSpeech("Quack I'm just a duck I don't understand!");
@@ -138,9 +137,16 @@ function MainApp() {
 
   async function getQuestion() {
     const index = Math.floor(Math.random() * PROGQUES.length);
+    setQuizQues(index);
     setText(PROGQUES[index].question);
     await textToSpeech(PROGQUES[index].question);
   }
+
+  async function checkAnswer(message) {
+    const words = message.split(" ");
+    if (words.indexOf("a") != -1) console.log("yey");
+  }
+
   async function getFact() {
     const index = Math.floor(Math.random() * PROGFACTS.length);
     setText(PROGFACTS[index].fact);
