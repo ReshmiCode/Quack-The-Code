@@ -95,6 +95,23 @@ function HomePage() {
             </a>
             {" "}
           </button>
+          <button
+            style={{
+              width: 120,
+              height: 40,
+              margin: 5,
+              borderRadius: 20,
+              backgroundColor: "#5295c7",
+              border: "none",
+              color: "#07002c",
+            }}
+          >
+            {" "}
+            <a href="https://storage.googleapis.com/recycle-bun-macos/RecycleBunWindows.zip" target="_blank" rel="noopener noreferrer" download>
+              Download for Google Assistant
+            </a>
+            {" "}
+          </button>
           <p>
             Made with 💖 by Megan Tran, Reshmi Ranjith, Saloni Shivdasani, and Vincent Vu
           </p>
