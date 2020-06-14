@@ -1,7 +1,7 @@
 "use strict";
 import React, { Component } from "react";
 import logo from "./logo.svg";
-import duck from "./spritesheet1.png";
+import duck from "./spritesheet.png";
 
 import Spritesheet from "react-responsive-spritesheet";
 //------------------------SPEECH RECOGNITION-----------------------------
@@ -107,11 +107,18 @@ class Speechy extends Component {
             image={duck}
             widthFrame={780}
             heightFrame={607}
-            steps={9}
-            fps={9}
+            steps={12}
+            fps={8}
             direction={"forward"}
-            autoplay={true}
+            autoplay={false}
             loop={true}
+            isResponsive={true}
+            onMouseOver={(spritesheet) => {
+              spritesheet.play();
+            }}
+            onMouseOut={(spritesheet) => {
+              spritesheet.pause();
+            }}
           />
         </button>
 

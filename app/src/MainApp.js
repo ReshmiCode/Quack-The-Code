@@ -10,6 +10,25 @@ const axios = require("axios");
 const _ = require("lodash");
 const moment = require("moment");
 
+var styles = {
+  button: {
+    width: 120,
+    height: 40,
+    margin: 5,
+    borderRadius: 20,
+    backgroundColor: "#5295c7",
+    border: "none",
+    color: "#07002c",
+  },
+  field: {
+    borderRadius: 20,
+    width: 200,
+    height: 40,
+    border: "none",
+    backgroundColor: "#d4eaf9",
+  },
+};
+
 function MainApp() {
   const [user, setUser] = useState("");
   const [message, setMessage] = useState("");
@@ -157,25 +176,39 @@ function MainApp() {
     <div className="App">
       <header className="App-header">
         <Speechy parentCallback={callbackFunction} />
-        <p> Ducky </p>
+        <p> Ducky ^_^ </p>
         <form onSubmit={handleSubmit}>
           <label>
             <input
+              style={styles.field}
               type="text"
-              placeholder="GitHub User"
+              placeholder="   GitHub User"
               value={user}
               onChange={handleChange}
             />
           </label>
-          <input type="submit" value="Get Commit" />
+          <input style={styles.button} type="submit" value="Get Commit" />
         </form>
         <p> {commits} Commits Today</p>
-        <button onClick={getJoke}>Get a Joke</button>
-        <button onClick={getProgrammingQuote}>Get a Programming Quote</button>
-        <button onClick={getQuote}>Get an Inspirational Quote</button>
-        <button onClick={getQuestion}>Get a Programming Question</button>
-        <button onClick={giveAdvice}>Get some Advice</button>
-        <button onClick={getFact}>Get a Programming Fact</button>
+
+        <button style={styles.button} onClick={getJoke}>
+          Joke
+        </button>
+        <button style={styles.button} onClick={getProgrammingQuote}>
+          Programming Quote
+        </button>
+        <button style={styles.button} onClick={getQuote}>
+          Inspirational Quote
+        </button>
+        <button style={styles.button} onClick={getQuestion}>
+          Programming Question
+        </button>
+        <button style={styles.button} onClick={giveAdvice}>
+          Advice
+        </button>
+        <button style={styles.button} onClick={getFact}>
+          Programming Fact
+        </button>
         {isElectron() ? (
           <button onClick={openWebsiteInBrower}>
             {" "}
@@ -183,7 +216,7 @@ function MainApp() {
           </button>
         ) : (
           <Link to="/">
-            <button> Homepage </button>
+            <button style={styles.button}> Homepage </button>
           </Link>
         )}
       </header>
