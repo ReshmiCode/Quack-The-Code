@@ -234,6 +234,7 @@ function MainApp() {
   return (
     <div className="App">
       <header className="App-header">
+        <p>{text}</p>
         <Speechy parentCallback={callbackFunction} />
         <p> Ducky ^_^ </p>
         <form onSubmit={handleSubmit}>
