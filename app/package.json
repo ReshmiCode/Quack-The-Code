@@ -2,12 +2,14 @@
   "name": "app",
   "version": "0.1.0",
   "private": true,
-  "main": "public/Main.js",
+  "main": "public/electron.js",
+  "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
+    "cross-env": "^7.0.2",
     "electron-is-dev": "^1.2.0",
     "is-electron": "^2.2.0",
     "lodash": "^4.17.15",
@@ -21,12 +23,15 @@
     "speak-tts": "^2.0.8"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "rescripts start",
+    "build": "rescripts build",
+    "test": "rescripts test",
     "eject": "react-scripts eject",
     "electron-start": "electron .",
-    "electron-dev": "concurrently \"BROWSER=none react-scripts start\" \"wait-on http://localhost:3000 && electron .\""
+    "electron-dev": "concurrently \"cross-env BROWSER=none react-scripts start\" \"wait-on http://localhost:3000 && electron .\"",
+    "postinstall": "electron-builder install-app-deps",
+    "preelectron-pack": "yarn build",
+    "electron-pack": "electron-builder -mw"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,9 +49,28 @@
     ]
   },
   "devDependencies": {
+    "@rescripts/cli": "^0.0.14",
+    "@rescripts/rescript-env": "^0.0.12",
     "concurrently": "^5.2.0",
     "electron": "^9.0.4",
     "electron-builder": "^22.7.0",
+    "typescript": "^3.9.5",
     "wait-on": "^5.0.1"
+  },
+  "author": {
+    "name": "UTD Hackathon Dream team",
+    "email": "hackathon.dream.team.utd@gmail.com",
+    "url": "http://www.saloni-shivdasani.codes/"
+  },
+  "build": {
+    "appId": "com.quack-the-code.app",
+    "productName": "Quack The Code",
+    "copyright": "Copyright © 2020 ${author}",
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "directories": {
+      "buildResources": "src"
+    }
   }
 }

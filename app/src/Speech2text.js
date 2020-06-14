@@ -1,6 +1,5 @@
 "use strict";
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import duck from "./spritesheet.png";
 
 import Spritesheet from "react-responsive-spritesheet";
@@ -28,7 +27,6 @@ class Speechy extends Component {
   }
 
   async sendData() {
-    console.log("Sending to parent", this.state.finalTranscript);
     this.props.parentCallback(this.state.finalTranscript);
   }
 
@@ -77,15 +75,12 @@ class Speechy extends Component {
 
       const transcriptArr = finalTranscript.split(" ");
       const stopCmd = transcriptArr.slice(-3, -1);
-      console.log("stopCmd", stopCmd);
       this.setState({ finalTranscript: finalTranscript });
-      console.log("Final transcript", this.state.finalTranscript);
       this.sendData();
 
       if (stopCmd[0] === "stop" && stopCmd[1] === "listening") {
         recognition.stop();
         recognition.onend = () => {
-          console.log("Stopped listening per command");
           const finalText = transcriptArr.slice(0, -3).join(" ");
           document.getElementById("final").innerHTML = finalText;
         };
