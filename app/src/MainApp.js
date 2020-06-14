@@ -70,7 +70,7 @@ function MainApp() {
       message.includes("github")
     )
       getCommits();
-    else if (message.includes("quack")) await text("Quack to you too");
+    else if (message.includes("quack")) await textToSpeech("Quack to you too");
     else if (message.length > 1)
       await textToSpeech("Quack I'm just a duck I don't understand!");
   }
