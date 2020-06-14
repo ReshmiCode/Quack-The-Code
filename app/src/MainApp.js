@@ -27,7 +27,7 @@ var styles = {
 function MainApp() {
   const [user, setUser] = useState("");
   const [quizQues, setQuizQues] = useState(-1);
-  const [commits, setCommits] = useState(null);
+  const [commits, setCommits] = useState(0);
   const [debugNumb, setDebugNumb] = useState(0);
   const [confetti, setConfetti] = useState(false);
   const [text, setText] = useState("");
@@ -239,9 +239,19 @@ function MainApp() {
     await textToSpeech(data.slip.advice);
   }
 
+  function feedDuck() {
+    if (commits) {
+      const foodLeft = commits - 1;
+      setCommits(foodLeft);
+    } else setCommits(0);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
+        <div style={{ position: "absolute", top: "0px", left: "25px" }}>
+          <p>{commits} Breadcrumbs</p>
+        </div>
         <p>{text}</p>
         <Modal user={user} changeUser={handleChange} />
         {confetti && <Confetti width={window.width} height={window.height} />}
@@ -259,7 +269,9 @@ function MainApp() {
           <button style={styles.button} onClick={getCommits}>
             Sync Github Commits
           </button>
-          {commits && <p> {commits} Commits Today</p>}
+          <button style={styles.button} onClick={feedDuck}>
+            Feed The Duck (in commits)
+          </button>
           <button style={styles.button} onClick={getJoke}>
             Programming Joke
           </button>
@@ -285,7 +297,7 @@ function MainApp() {
             </button>
           ) : (
             <Link to="/">
-              <button style={styles.button}> Homepage </button>
+              <button style={styles.button}> Go To Home Page </button>
             </Link>
           )}
         </div>
