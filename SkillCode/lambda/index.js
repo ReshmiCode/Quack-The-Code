@@ -14,7 +14,7 @@ const LaunchRequestHandler = {
     const speakOutput =
       "Welcome, to your code companion. What can I help you with today?";
     const soundEffect =
-      '<audio src="https://duck-noise.s3.us-east-2.amazonaws.com/quack.mp3"/>';
+      '<audio src="https://duck-noise.s3.us-east-2.amazonaws.com/quack2.mp3"/>';
     const repromptOutput =
       "Sorry I did not catch that. What would you like to try?";
     return handlerInput.responseBuilder
