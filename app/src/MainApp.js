@@ -265,12 +265,18 @@ function MainApp() {
     console.log("Played");
   }
 
-  function feedDuck() {
+  async function feedDuck() {
     if (!isNaN(commits)) {
-      const foodLeft = commits - 1;
-      setCommits(foodLeft);
-      setEating(true);
-      setTimeout(() => setEating(false), 1450);
+      if (commits <= 0){
+        console.log("No More Commits");
+        await textToSpeech("Push more GitHub commits to feed the duck");
+      }
+      else{
+        const foodLeft = commits - 1;
+        setCommits(foodLeft);
+        setEating(true);
+        setTimeout(() => setEating(false), 1450);
+      }
     } else setCommits("Sync your commits.");
   }
 
