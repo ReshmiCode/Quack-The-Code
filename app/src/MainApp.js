@@ -22,13 +22,6 @@ var styles = {
     border: "none",
     color: "#07002c",
   },
-  field: {
-    borderRadius: 20,
-    width: 200,
-    height: 40,
-    border: "none",
-    backgroundColor: "#d4eaf9",
-  },
 };
 
 function MainApp() {
@@ -193,7 +186,7 @@ function MainApp() {
     const words = message.split(" ");
     if (words.indexOf("a") != -1) {
       if (PROGQUES[quizQues].answer === "a") {
-        await textToSpeech("Correct answer!");
+        await textToSpeech("Correct answer! Quack good job!");
         showConfetti();
       } else
         await textToSpeech(
@@ -249,6 +242,7 @@ function MainApp() {
   return (
     <div className="App">
       <header className="App-header">
+        <p>{text}</p>
         <Modal user={user} changeUser={handleChange} />
         {confetti && <Confetti width={window.width} height={window.height} />}
         <p style={{ "white-space": "pre-wrap" }}>{text}</p>
@@ -263,11 +257,11 @@ function MainApp() {
         />
         <div style={{ flexDirection: "row" }}>
           <button style={styles.button} onClick={getCommits}>
-            Get Commits
+            Sync Github Commits
           </button>
           {commits && <p> {commits} Commits Today</p>}
           <button style={styles.button} onClick={getJoke}>
-            Joke
+            Programming Joke
           </button>
           <button style={styles.button} onClick={getProgrammingQuote}>
             Programming Quote
@@ -279,7 +273,7 @@ function MainApp() {
             Programming Question
           </button>
           <button style={styles.button} onClick={giveAdvice}>
-            Advice
+            Motivation & Advice
           </button>
           <button style={styles.button} onClick={getFact}>
             Programming Fact
