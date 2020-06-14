@@ -32,6 +32,7 @@ function MainApp() {
   const [debugNumb, setDebugNumb] = useState(0);
   const [confetti, setConfetti] = useState(false);
   const [text, setText] = useState("");
+  const [eating, setEating] = useState(false);
 
   async function callbackFunction(childData) {
     callMatchingFunction(childData);
@@ -250,6 +251,8 @@ function MainApp() {
     if (!isNaN(commits)) {
       const foodLeft = commits - 1;
       setCommits(foodLeft);
+      setEating(true);
+      setTimeout(() => setEating(false), 800);
     } else setCommits("Sync your commits.");
   }
 
@@ -265,7 +268,7 @@ function MainApp() {
         <Modal user={user} changeUser={handleChange} />
         {confetti && <Confetti width={window.width} height={window.height} />}
         <p style={{ "white-space": "pre-wrap" }}>{text}</p>
-        <Speechy parentCallback={callbackFunction} />
+        <Speechy parentCallback={callbackFunction} eating={eating} />
         <Wave
           fill="#3275a8"
           style={{ marginTop: -120 }}
