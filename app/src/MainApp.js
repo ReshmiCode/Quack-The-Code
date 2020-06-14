@@ -160,7 +160,7 @@ function MainApp() {
     const { data } = await axios.get(
       "https://official-joke-api.appspot.com/jokes/programming/random"
     );
-    setText(data[0].setup + "\n - " + data[0].punchline);
+    setText(data[0].setup + "\n" + data[0].punchline);
     await textToSpeech(data[0].setup);
     await textToSpeech(data[0].punchline);
   }
@@ -257,7 +257,6 @@ function MainApp() {
             Get Commits
           </button>
           {commits && <p> {commits} Commits Today</p>}
-
           <button style={styles.button} onClick={getJoke}>
             Joke
           </button>
