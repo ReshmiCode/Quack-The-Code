@@ -12,7 +12,7 @@
     "electron-is-dev": "^1.2.0",
     "is-electron": "^2.2.0",
     "lodash": "^4.17.21",
-    "moment": "^2.29.2",
+    "moment": "^2.29.4",
     "react": "^16.13.1",
     "react-confetti": "^5.0.1",
     "react-dom": "^16.13.1",
